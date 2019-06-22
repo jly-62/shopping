@@ -1,0 +1,338 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yc.shopping.dao.OrdersMapper">
+  <resultMap id="BaseResultMap" type="com.yc.shopping.bean.Orders">
+    <id column="oid" jdbcType="INTEGER" property="oid" />
+    <result column="uid" jdbcType="INTEGER" property="uid" />
+    <result column="pid" jdbcType="INTEGER" property="pid" />
+    <result column="price" jdbcType="DOUBLE" property="price" />
+    <result column="addressId" jdbcType="INTEGER" property="addressid" />
+    <result column="createDate" jdbcType="TIMESTAMP" property="createdate" />
+    <result column="payDate" jdbcType="TIMESTAMP" property="paydate" />
+    <result column="payment" jdbcType="VARCHAR" property="payment" />
+    <result column="cencelDate" jdbcType="TIMESTAMP" property="cenceldate" />
+    <result column="sendDate" jdbcType="TIMESTAMP" property="senddate" />
+    <result column="confirmDate" jdbcType="TIMESTAMP" property="confirmdate" />
+    <result column="stock" jdbcType="INTEGER" property="stock" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    oid, uid, pid, price, addressId, createDate, payDate, payment, cencelDate, sendDate, 
+    confirmDate, stock, status
+  </sql>
+  <select id="selectByExample" parameterType="com.yc.shopping.bean.OrdersExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from orders
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from orders
+    where oid = #{oid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from orders
+    where oid = #{oid,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.yc.shopping.bean.OrdersExample">
+    delete from orders
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.yc.shopping.bean.Orders">
+    insert into orders (oid, uid, pid, 
+      price, addressId, createDate, 
+      payDate, payment, cencelDate, 
+      sendDate, confirmDate, stock, 
+      status)
+    values (#{oid,jdbcType=INTEGER}, #{uid,jdbcType=INTEGER}, #{pid,jdbcType=INTEGER}, 
+      #{price,jdbcType=DOUBLE}, #{addressid,jdbcType=INTEGER}, #{createdate,jdbcType=TIMESTAMP}, 
+      #{paydate,jdbcType=TIMESTAMP}, #{payment,jdbcType=VARCHAR}, #{cenceldate,jdbcType=TIMESTAMP}, 
+      #{senddate,jdbcType=TIMESTAMP}, #{confirmdate,jdbcType=TIMESTAMP}, #{stock,jdbcType=INTEGER}, 
+      #{status,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.yc.shopping.bean.Orders">
+    insert into orders
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="oid != null">
+        oid,
+      </if>
+      <if test="uid != null">
+        uid,
+      </if>
+      <if test="pid != null">
+        pid,
+      </if>
+      <if test="price != null">
+        price,
+      </if>
+      <if test="addressid != null">
+        addressId,
+      </if>
+      <if test="createdate != null">
+        createDate,
+      </if>
+      <if test="paydate != null">
+        payDate,
+      </if>
+      <if test="payment != null">
+        payment,
+      </if>
+      <if test="cenceldate != null">
+        cencelDate,
+      </if>
+      <if test="senddate != null">
+        sendDate,
+      </if>
+      <if test="confirmdate != null">
+        confirmDate,
+      </if>
+      <if test="stock != null">
+        stock,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="oid != null">
+        #{oid,jdbcType=INTEGER},
+      </if>
+      <if test="uid != null">
+        #{uid,jdbcType=INTEGER},
+      </if>
+      <if test="pid != null">
+        #{pid,jdbcType=INTEGER},
+      </if>
+      <if test="price != null">
+        #{price,jdbcType=DOUBLE},
+      </if>
+      <if test="addressid != null">
+        #{addressid,jdbcType=INTEGER},
+      </if>
+      <if test="createdate != null">
+        #{createdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="paydate != null">
+        #{paydate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="payment != null">
+        #{payment,jdbcType=VARCHAR},
+      </if>
+      <if test="cenceldate != null">
+        #{cenceldate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="senddate != null">
+        #{senddate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="confirmdate != null">
+        #{confirmdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="stock != null">
+        #{stock,jdbcType=INTEGER},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.yc.shopping.bean.OrdersExample" resultType="java.lang.Long">
+    select count(*) from orders
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update orders
+    <set>
+      <if test="record.oid != null">
+        oid = #{record.oid,jdbcType=INTEGER},
+      </if>
+      <if test="record.uid != null">
+        uid = #{record.uid,jdbcType=INTEGER},
+      </if>
+      <if test="record.pid != null">
+        pid = #{record.pid,jdbcType=INTEGER},
+      </if>
+      <if test="record.price != null">
+        price = #{record.price,jdbcType=DOUBLE},
+      </if>
+      <if test="record.addressid != null">
+        addressId = #{record.addressid,jdbcType=INTEGER},
+      </if>
+      <if test="record.createdate != null">
+        createDate = #{record.createdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.paydate != null">
+        payDate = #{record.paydate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.payment != null">
+        payment = #{record.payment,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cenceldate != null">
+        cencelDate = #{record.cenceldate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.senddate != null">
+        sendDate = #{record.senddate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.confirmdate != null">
+        confirmDate = #{record.confirmdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.stock != null">
+        stock = #{record.stock,jdbcType=INTEGER},
+      </if>
+      <if test="record.status != null">
+        status = #{record.status,jdbcType=INTEGER},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update orders
+    set oid = #{record.oid,jdbcType=INTEGER},
+      uid = #{record.uid,jdbcType=INTEGER},
+      pid = #{record.pid,jdbcType=INTEGER},
+      price = #{record.price,jdbcType=DOUBLE},
+      addressId = #{record.addressid,jdbcType=INTEGER},
+      createDate = #{record.createdate,jdbcType=TIMESTAMP},
+      payDate = #{record.paydate,jdbcType=TIMESTAMP},
+      payment = #{record.payment,jdbcType=VARCHAR},
+      cencelDate = #{record.cenceldate,jdbcType=TIMESTAMP},
+      sendDate = #{record.senddate,jdbcType=TIMESTAMP},
+      confirmDate = #{record.confirmdate,jdbcType=TIMESTAMP},
+      stock = #{record.stock,jdbcType=INTEGER},
+      status = #{record.status,jdbcType=INTEGER}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yc.shopping.bean.Orders">
+    update orders
+    <set>
+      <if test="uid != null">
+        uid = #{uid,jdbcType=INTEGER},
+      </if>
+      <if test="pid != null">
+        pid = #{pid,jdbcType=INTEGER},
+      </if>
+      <if test="price != null">
+        price = #{price,jdbcType=DOUBLE},
+      </if>
+      <if test="addressid != null">
+        addressId = #{addressid,jdbcType=INTEGER},
+      </if>
+      <if test="createdate != null">
+        createDate = #{createdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="paydate != null">
+        payDate = #{paydate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="payment != null">
+        payment = #{payment,jdbcType=VARCHAR},
+      </if>
+      <if test="cenceldate != null">
+        cencelDate = #{cenceldate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="senddate != null">
+        sendDate = #{senddate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="confirmdate != null">
+        confirmDate = #{confirmdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="stock != null">
+        stock = #{stock,jdbcType=INTEGER},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=INTEGER},
+      </if>
+    </set>
+    where oid = #{oid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yc.shopping.bean.Orders">
+    update orders
+    set uid = #{uid,jdbcType=INTEGER},
+      pid = #{pid,jdbcType=INTEGER},
+      price = #{price,jdbcType=DOUBLE},
+      addressId = #{addressid,jdbcType=INTEGER},
+      createDate = #{createdate,jdbcType=TIMESTAMP},
+      payDate = #{paydate,jdbcType=TIMESTAMP},
+      payment = #{payment,jdbcType=VARCHAR},
+      cencelDate = #{cenceldate,jdbcType=TIMESTAMP},
+      sendDate = #{senddate,jdbcType=TIMESTAMP},
+      confirmDate = #{confirmdate,jdbcType=TIMESTAMP},
+      stock = #{stock,jdbcType=INTEGER},
+      status = #{status,jdbcType=INTEGER}
+    where oid = #{oid,jdbcType=INTEGER}
+  </update>
+</mapper>

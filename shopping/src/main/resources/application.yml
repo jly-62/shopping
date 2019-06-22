@@ -1,0 +1,50 @@
+# 大小写敏感
+# 使用缩进表示层级关系
+# 禁止使用tab缩进，只能使用空格键
+# 缩进长度没有限制，只要元素缩进对齐就表示这些元素属于一个层级
+# 使用#表示注释
+# 三种数据结构：list map scalar
+# 设值时冒号后要带一个空格
+
+# @SpringBootConfiguration spring容器配置注解===》父注解@Configuration 
+# @EnableAutoConfiguration 开启自动配置***
+#   @Import(AutoConfigurationImportSelector.class) 导入自动配置选择器
+#   xxxAutoConfiguration 类上的注解
+#      1、     
+
+
+spring:
+  mvc:
+    view:
+      prefix: WEB-INF/jsp/
+      suffix: .jsp
+    
+  datasource:
+    url: jdbc:mysql://localhost:3306/shopping?useUnicode=true&serverTimezone=GMT%2B8&useSSL=false&characterEncoding=utf-8&allowPublicKeyRetrieval=true
+    username: root
+    password: aaaaaaaa
+    driver-class-name: com.mysql.cj.jdbc.Driver
+   
+   # springboot 文件上传默认开启 
+  resources: 
+    staticLocations: file:f:/upload/
+   
+  mail:
+    host: smtp.qq.com
+    username: 1592137611@qq.com
+    password: fthuntuwcnlkjdcg
+    default-encoding: UTF-8
+ 
+#日志配置   
+logging:
+  level:
+    com:
+      yc:
+        shopping:
+          dao: debug
+          web: warn
+
+mail:
+  fromMail:
+    addr: 1592137611@qq.com
+   
