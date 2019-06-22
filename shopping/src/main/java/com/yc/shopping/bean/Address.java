@@ -15,7 +15,7 @@ public class Address {
 
     private String street;
 
-    private Integer tel;
+    private String tel;
 
     private String isdedault;
 
@@ -75,12 +75,13 @@ public class Address {
         this.street = street == null ? null : street.trim();
     }
 
-    public Integer getTel() {
+    public String getTel() {
         return tel;
     }
 
-    public void setTel(Integer tel) {
-        this.tel = tel;
+    public void setTel(String tel) {
+        this.tel = tel == null ? null : tel.trim();
+
     }
 
     public String getIsdedault() {

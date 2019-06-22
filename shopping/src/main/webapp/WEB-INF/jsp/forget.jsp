@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 	<head lang="en">
 		<meta charset="utf-8" />
@@ -27,7 +27,7 @@
 				</ul>
 				<div class="formCon">
 					<!--步骤1-->
-					<form action="toreg" method="post" class="one">
+					<form action="#" method="post" class="one">
 						<input type="text" value="" placeholder="昵称/邮箱"><label>请输入昵称/邮箱</label><br />
 						<input type="text" value="" placeholder="验证码"><label>请输入验证码</label><br />
 						<img src="img/temp/code.jpg"><br>
@@ -54,3 +54,4 @@
 		<script src="js/pro.js" type="text/javascript" charset="utf-8"></script>
 	</body>
 </html>
+

@@ -6,7 +6,7 @@
     <result column="username" jdbcType="VARCHAR" property="username" />
     <result column="upwd" jdbcType="VARCHAR" property="upwd" />
     <result column="email" jdbcType="VARCHAR" property="email" />
-    <result column="tel" jdbcType="INTEGER" property="tel" />
+    <result column="tel" jdbcType="VARCHAR" property="tel" />
     <result column="gender" jdbcType="VARCHAR" property="gender" />
     <result column="header" jdbcType="VARCHAR" property="header" />
     <result column="birthday" jdbcType="DATE" property="birthday" />
@@ -107,7 +107,7 @@
       email, tel, gender, 
       header, birthday)
     values (#{uid,jdbcType=INTEGER}, #{username,jdbcType=VARCHAR}, #{upwd,jdbcType=VARCHAR}, 
-      #{email,jdbcType=VARCHAR}, #{tel,jdbcType=INTEGER}, #{gender,jdbcType=VARCHAR}, 
+      #{email,jdbcType=VARCHAR}, #{tel,jdbcType=VARCHAR}, #{gender,jdbcType=VARCHAR}, 
       #{header,jdbcType=VARCHAR}, #{birthday,jdbcType=DATE})
   </insert>
   <insert id="insertSelective" parameterType="com.yc.shopping.bean.User">
@@ -152,7 +152,7 @@
         #{email,jdbcType=VARCHAR},
       </if>
       <if test="tel != null">
-        #{tel,jdbcType=INTEGER},
+        #{tel,jdbcType=VARCHAR},
       </if>
       <if test="gender != null">
         #{gender,jdbcType=VARCHAR},
@@ -187,7 +187,7 @@
         email = #{record.email,jdbcType=VARCHAR},
       </if>
       <if test="record.tel != null">
-        tel = #{record.tel,jdbcType=INTEGER},
+        tel = #{record.tel,jdbcType=VARCHAR},
       </if>
       <if test="record.gender != null">
         gender = #{record.gender,jdbcType=VARCHAR},
@@ -209,7 +209,7 @@
       username = #{record.username,jdbcType=VARCHAR},
       upwd = #{record.upwd,jdbcType=VARCHAR},
       email = #{record.email,jdbcType=VARCHAR},
-      tel = #{record.tel,jdbcType=INTEGER},
+      tel = #{record.tel,jdbcType=VARCHAR},
       gender = #{record.gender,jdbcType=VARCHAR},
       header = #{record.header,jdbcType=VARCHAR},
       birthday = #{record.birthday,jdbcType=DATE}
@@ -230,7 +230,7 @@
         email = #{email,jdbcType=VARCHAR},
       </if>
       <if test="tel != null">
-        tel = #{tel,jdbcType=INTEGER},
+        tel = #{tel,jdbcType=VARCHAR},
       </if>
       <if test="gender != null">
         gender = #{gender,jdbcType=VARCHAR},
@@ -249,7 +249,7 @@
     set username = #{username,jdbcType=VARCHAR},
       upwd = #{upwd,jdbcType=VARCHAR},
       email = #{email,jdbcType=VARCHAR},
-      tel = #{tel,jdbcType=INTEGER},
+      tel = #{tel,jdbcType=VARCHAR},
       gender = #{gender,jdbcType=VARCHAR},
       header = #{header,jdbcType=VARCHAR},
       birthday = #{birthday,jdbcType=DATE}

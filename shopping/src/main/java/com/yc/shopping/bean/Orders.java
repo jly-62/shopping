@@ -1,6 +1,6 @@
 package com.yc.shopping.bean;
 
-import java.util.Date;
+import java.sql.Timestamp;
 
 public class Orders {
     private Integer oid;
@@ -13,17 +13,17 @@ public class Orders {
 
     private Integer addressid;
 
-    private Date createdate;
+    private Timestamp createdate;
 
-    private Date paydate;
+    private Timestamp paydate;
 
     private String payment;
 
-    private Date cenceldate;
+    private Timestamp cenceldate;
 
-    private Date senddate;
+    private Timestamp senddate;
 
-    private Date confirmdate;
+    private Timestamp confirmdate;
 
     private Integer stock;
 
@@ -69,19 +69,19 @@ public class Orders {
         this.addressid = addressid;
     }
 
-    public Date getCreatedate() {
+    public Timestamp getCreatedate() {
         return createdate;
     }
 
-    public void setCreatedate(Date createdate) {
+    public void setCreatedate(Timestamp createdate) {
         this.createdate = createdate;
     }
 
-    public Date getPaydate() {
+    public Timestamp getPaydate() {
         return paydate;
     }
 
-    public void setPaydate(Date paydate) {
+    public void setPaydate(Timestamp paydate) {
         this.paydate = paydate;
     }
 
@@ -93,27 +93,28 @@ public class Orders {
         this.payment = payment == null ? null : payment.trim();
     }
 
-    public Date getCenceldate() {
+    public Timestamp getCenceldate() {
         return cenceldate;
     }
 
-    public void setCenceldate(Date cenceldate) {
+    public void setCenceldate(Timestamp cenceldate) {
         this.cenceldate = cenceldate;
     }
 
-    public Date getSenddate() {
+    public Timestamp getSenddate() {
         return senddate;
     }
 
-    public void setSenddate(Date senddate) {
+    public void setSenddate(Timestamp senddate) {
         this.senddate = senddate;
     }
 
-    public Date getConfirmdate() {
+    public Timestamp getConfirmdate() {
         return confirmdate;
     }
 
-    public void setConfirmdate(Date confirmdate) {
+    public void setConfirmdate(Timestamp confirmdate) {
+
         this.confirmdate = confirmdate;
     }
 

@@ -9,7 +9,7 @@
     <result column="city" jdbcType="SMALLINT" property="city" />
     <result column="district" jdbcType="SMALLINT" property="district" />
     <result column="street" jdbcType="VARCHAR" property="street" />
-    <result column="tel" jdbcType="INTEGER" property="tel" />
+    <result column="tel" jdbcType="VARCHAR" property="tel" />
     <result column="isDedault" jdbcType="VARCHAR" property="isdedault" />
   </resultMap>
   <sql id="Example_Where_Clause">
@@ -110,7 +110,7 @@
       )
     values (#{addressid,jdbcType=INTEGER}, #{uid,jdbcType=INTEGER}, #{adderss,jdbcType=VARCHAR}, 
       #{province,jdbcType=SMALLINT}, #{city,jdbcType=SMALLINT}, #{district,jdbcType=SMALLINT}, 
-      #{street,jdbcType=VARCHAR}, #{tel,jdbcType=INTEGER}, #{isdedault,jdbcType=VARCHAR}
+      #{street,jdbcType=VARCHAR}, #{tel,jdbcType=VARCHAR}, #{isdedault,jdbcType=VARCHAR}
       )
   </insert>
   <insert id="insertSelective" parameterType="com.yc.shopping.bean.Address">
@@ -167,7 +167,7 @@
         #{street,jdbcType=VARCHAR},
       </if>
       <if test="tel != null">
-        #{tel,jdbcType=INTEGER},
+        #{tel,jdbcType=VARCHAR},
       </if>
       <if test="isdedault != null">
         #{isdedault,jdbcType=VARCHAR},
@@ -205,7 +205,7 @@
         street = #{record.street,jdbcType=VARCHAR},
       </if>
       <if test="record.tel != null">
-        tel = #{record.tel,jdbcType=INTEGER},
+        tel = #{record.tel,jdbcType=VARCHAR},
       </if>
       <if test="record.isdedault != null">
         isDedault = #{record.isdedault,jdbcType=VARCHAR},
@@ -224,7 +224,7 @@
       city = #{record.city,jdbcType=SMALLINT},
       district = #{record.district,jdbcType=SMALLINT},
       street = #{record.street,jdbcType=VARCHAR},
-      tel = #{record.tel,jdbcType=INTEGER},
+      tel = #{record.tel,jdbcType=VARCHAR},
       isDedault = #{record.isdedault,jdbcType=VARCHAR}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
@@ -252,7 +252,7 @@
         street = #{street,jdbcType=VARCHAR},
       </if>
       <if test="tel != null">
-        tel = #{tel,jdbcType=INTEGER},
+        tel = #{tel,jdbcType=VARCHAR},
       </if>
       <if test="isdedault != null">
         isDedault = #{isdedault,jdbcType=VARCHAR},
@@ -268,7 +268,8 @@
       city = #{city,jdbcType=SMALLINT},
       district = #{district,jdbcType=SMALLINT},
       street = #{street,jdbcType=VARCHAR},
-      tel = #{tel,jdbcType=INTEGER},
+      tel = #{tel,jdbcType=VARCHAR},
+
       isDedault = #{isdedault,jdbcType=VARCHAR}
     where addressId = #{addressid,jdbcType=INTEGER}
   </update>

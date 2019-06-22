@@ -11,7 +11,7 @@ public class User {
 
     private String email;
 
-    private Integer tel;
+    private String tel;
 
     private String gender;
 
@@ -51,12 +51,13 @@ public class User {
         this.email = email == null ? null : email.trim();
     }
 
-    public Integer getTel() {
+    public String getTel() {
         return tel;
     }
 
-    public void setTel(Integer tel) {
-        this.tel = tel;
+    public void setTel(String tel) {
+        this.tel = tel == null ? null : tel.trim();
+
     }
 
     public String getGender() {

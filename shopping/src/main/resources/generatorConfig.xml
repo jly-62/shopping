@@ -12,10 +12,11 @@
 			<property name="suppressAllComments" value="true"/>
 		</commentGenerator>
 
-		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
-			connectionURL="jdbc:mysql://127.0.0.1/shopping?useUnicode=true&amp;characterEncoding=UTF-8" 
-			userId="root" password="a">
-		</jdbcConnection>
+	<jdbcConnection driverClass="com.mysql.cj.jdbc.Driver"
+		connectionURL="jdbc:mysql://localhost:3306/shopping?useUnicode=true&amp;serverTimezone=GMT%2B8&amp;useSSL=false&amp;characterEncoding=utf-8&amp;allowPublicKeyRetrieval=true"
+		userId="root" password="aaaaaaaa">
+		<property name="nullCatalogMeansCurrent" value="true"/>		
+	</jdbcConnection>
 		
 		<!-- 实体类包名 -->
 		<javaModelGenerator targetPackage="com.yc.shopping.bean"
@@ -30,13 +31,17 @@
 		<javaClientGenerator type="MAPPER"
 			targetPackage="com.yc.shopping.dao" targetProject="src/main/java">
 		</javaClientGenerator>
-
+		
 		<!-- % 表示所有表 -->
 		<table tableName="%" >
 			<generatedKey column="id" sqlStatement="mysql" identity="true"/>
-			<columnOverride column="createtime" javaType="java.sql.Timestamp"></columnOverride>
-			<columnOverride column="create_time" javaType="java.sql.Timestamp"></columnOverride>
-			<columnOverride column="finish_time" javaType="java.sql.Timestamp"></columnOverride>
+			<columnOverride column="createDate" javaType="java.sql.Timestamp"></columnOverride>
+			<columnOverride column="payDate" javaType="java.sql.Timestamp"></columnOverride>
+			<columnOverride column="cencelDate" javaType="java.sql.Timestamp"></columnOverride>
+			<columnOverride column="sendDate" javaType="java.sql.Timestamp"></columnOverride>
+			<columnOverride column="confirmDate" javaType="java.sql.Timestamp"></columnOverride>
+			<columnOverride column="createTime" javaType="java.sql.Timestamp"></columnOverride>
+
 		</table>
 
 	</context>
