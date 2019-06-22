@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yc.shopping.dao.AddressMapper">
+  <resultMap id="BaseResultMap" type="com.yc.shopping.bean.Address">
+    <id column="addressId" jdbcType="INTEGER" property="addressid" />
+    <result column="uid" jdbcType="INTEGER" property="uid" />
+    <result column="adderss" jdbcType="VARCHAR" property="adderss" />
+    <result column="province" jdbcType="SMALLINT" property="province" />
+    <result column="city" jdbcType="SMALLINT" property="city" />
+    <result column="district" jdbcType="SMALLINT" property="district" />
+    <result column="street" jdbcType="VARCHAR" property="street" />
+    <result column="tel" jdbcType="INTEGER" property="tel" />
+    <result column="isDedault" jdbcType="VARCHAR" property="isdedault" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    addressId, uid, adderss, province, city, district, street, tel, isDedault
+  </sql>
+  <select id="selectByExample" parameterType="com.yc.shopping.bean.AddressExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from address
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from address
+    where addressId = #{addressid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from address
+    where addressId = #{addressid,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.yc.shopping.bean.AddressExample">
+    delete from address
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.yc.shopping.bean.Address">
+    insert into address (addressId, uid, adderss, 
+      province, city, district, 
+      street, tel, isDedault
+      )
+    values (#{addressid,jdbcType=INTEGER}, #{uid,jdbcType=INTEGER}, #{adderss,jdbcType=VARCHAR}, 
+      #{province,jdbcType=SMALLINT}, #{city,jdbcType=SMALLINT}, #{district,jdbcType=SMALLINT}, 
+      #{street,jdbcType=VARCHAR}, #{tel,jdbcType=INTEGER}, #{isdedault,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.yc.shopping.bean.Address">
+    insert into address
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="addressid != null">
+        addressId,
+      </if>
+      <if test="uid != null">
+        uid,
+      </if>
+      <if test="adderss != null">
+        adderss,
+      </if>
+      <if test="province != null">
+        province,
+      </if>
+      <if test="city != null">
+        city,
+      </if>
+      <if test="district != null">
+        district,
+      </if>
+      <if test="street != null">
+        street,
+      </if>
+      <if test="tel != null">
+        tel,
+      </if>
+      <if test="isdedault != null">
+        isDedault,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="addressid != null">
+        #{addressid,jdbcType=INTEGER},
+      </if>
+      <if test="uid != null">
+        #{uid,jdbcType=INTEGER},
+      </if>
+      <if test="adderss != null">
+        #{adderss,jdbcType=VARCHAR},
+      </if>
+      <if test="province != null">
+        #{province,jdbcType=SMALLINT},
+      </if>
+      <if test="city != null">
+        #{city,jdbcType=SMALLINT},
+      </if>
+      <if test="district != null">
+        #{district,jdbcType=SMALLINT},
+      </if>
+      <if test="street != null">
+        #{street,jdbcType=VARCHAR},
+      </if>
+      <if test="tel != null">
+        #{tel,jdbcType=INTEGER},
+      </if>
+      <if test="isdedault != null">
+        #{isdedault,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.yc.shopping.bean.AddressExample" resultType="java.lang.Long">
+    select count(*) from address
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update address
+    <set>
+      <if test="record.addressid != null">
+        addressId = #{record.addressid,jdbcType=INTEGER},
+      </if>
+      <if test="record.uid != null">
+        uid = #{record.uid,jdbcType=INTEGER},
+      </if>
+      <if test="record.adderss != null">
+        adderss = #{record.adderss,jdbcType=VARCHAR},
+      </if>
+      <if test="record.province != null">
+        province = #{record.province,jdbcType=SMALLINT},
+      </if>
+      <if test="record.city != null">
+        city = #{record.city,jdbcType=SMALLINT},
+      </if>
+      <if test="record.district != null">
+        district = #{record.district,jdbcType=SMALLINT},
+      </if>
+      <if test="record.street != null">
+        street = #{record.street,jdbcType=VARCHAR},
+      </if>
+      <if test="record.tel != null">
+        tel = #{record.tel,jdbcType=INTEGER},
+      </if>
+      <if test="record.isdedault != null">
+        isDedault = #{record.isdedault,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update address
+    set addressId = #{record.addressid,jdbcType=INTEGER},
+      uid = #{record.uid,jdbcType=INTEGER},
+      adderss = #{record.adderss,jdbcType=VARCHAR},
+      province = #{record.province,jdbcType=SMALLINT},
+      city = #{record.city,jdbcType=SMALLINT},
+      district = #{record.district,jdbcType=SMALLINT},
+      street = #{record.street,jdbcType=VARCHAR},
+      tel = #{record.tel,jdbcType=INTEGER},
+      isDedault = #{record.isdedault,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yc.shopping.bean.Address">
+    update address
+    <set>
+      <if test="uid != null">
+        uid = #{uid,jdbcType=INTEGER},
+      </if>
+      <if test="adderss != null">
+        adderss = #{adderss,jdbcType=VARCHAR},
+      </if>
+      <if test="province != null">
+        province = #{province,jdbcType=SMALLINT},
+      </if>
+      <if test="city != null">
+        city = #{city,jdbcType=SMALLINT},
+      </if>
+      <if test="district != null">
+        district = #{district,jdbcType=SMALLINT},
+      </if>
+      <if test="street != null">
+        street = #{street,jdbcType=VARCHAR},
+      </if>
+      <if test="tel != null">
+        tel = #{tel,jdbcType=INTEGER},
+      </if>
+      <if test="isdedault != null">
+        isDedault = #{isdedault,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where addressId = #{addressid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yc.shopping.bean.Address">
+    update address
+    set uid = #{uid,jdbcType=INTEGER},
+      adderss = #{adderss,jdbcType=VARCHAR},
+      province = #{province,jdbcType=SMALLINT},
+      city = #{city,jdbcType=SMALLINT},
+      district = #{district,jdbcType=SMALLINT},
+      street = #{street,jdbcType=VARCHAR},
+      tel = #{tel,jdbcType=INTEGER},
+      isDedault = #{isdedault,jdbcType=VARCHAR}
+    where addressId = #{addressid,jdbcType=INTEGER}
+  </update>
+</mapper>
