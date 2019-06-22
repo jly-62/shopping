@@ -60,9 +60,9 @@
 							</div>
 						</div>
 					</li>
-					 <c:forEach items="${cateList}" var="c">
+					
 					<li>
-						<a href="flowerDer.html">${empty c.parentId ? c.cname : null}</a>
+						<a href="flowerDer.html">装饰摆件</a>
 						<div class="sList2">
 							<div class="clearfix">
 								<a href="proList.html">干花花艺</a>
@@ -70,8 +70,7 @@
 							</div>
 						</div>
 					</li>
-					</c:forEach>
-					<!-- <li>
+					<li>
 						<a href="decoration.html">布艺软饰</a>
 						<div class="sList2">
 							<div class="clearfix">
@@ -82,6 +81,6 @@
 					</li>
 					<li><a href="paint.html">墙式壁挂</a></li>
 					<li><a href="perfume.html">蜡艺香薰</a></li>
-					<li><a href="idea.html">创意家居</a></li> -->
+					<li><a href="idea.html">创意家居</a></li>
 				</ul>
 			</div>

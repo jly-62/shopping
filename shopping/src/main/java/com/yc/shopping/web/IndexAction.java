@@ -22,7 +22,7 @@ public class IndexAction {
 	 */
 	@RequestMapping("index")
 	public String index(){
-		return "index";
+		return "admin/index";
 	}
 	
 	@ModelAttribute
