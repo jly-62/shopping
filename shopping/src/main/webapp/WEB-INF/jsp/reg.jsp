@@ -29,14 +29,18 @@
 			modelAttribute="User">
 			<h1><a href="index"><img src="img/temp/logo.png"></a></h1>
 				<p>用户注册</p>
-			<form:input type="text" class="text" path="email" value="" onfocus="this.value = '';" placeholder="邮箱"></form:input>
-			<form:errors path="email"></form:errors>
 			<form:input type="text" class="text" path="username" value="" onfocus="this.value = '';" placeholder="用户名"></form:input>
 			<form:errors path="username"></form:errors>
 			<form:input type="text" path="upwd" value="" onfocus="this.value = '';" id="upwd" placeholder="密码"></form:input>
 			<form:errors path="upwd"></form:errors>
 			<input type="text" id="reupwd" value="" onfocus="this.value = '';" id="upwd" placeholder="确认密码"></input>
 			<form:errors path="upwd"></form:errors>
+			
+			<form:input type="text" class="text" path="email" value="" onfocus="this.value = '';" placeholder="邮箱"></form:input>
+			<form:errors path="email"></form:errors>
+			
+			<form:input type="text" class="text" path="tel" value="" onfocus="this.value = '';" placeholder="电话号码"></form:input>
+			<form:errors path="tel"></form:errors>
 			<p class="txtL txt"><input class="code" type="text" name="" value="" placeholder="验证码"><input type="submit"  value="从邮箱获取验证码"></p>
 				<p><input type="submit" name="" value="注册"></p>
 				<p class="txtL txt">完成此注册，即表明您同意了我们的<a href="#"><使用条款和隐私策略></a>
