@@ -69,7 +69,7 @@ public class Loginaction {
 		}
 		ubiz.reg(u);
 		model.addAttribute("msg","注册成功");
-		return "index";
+		return "regsuccess";
 	}
 	
 }
