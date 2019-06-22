@@ -52,21 +52,22 @@ public class Loginaction {
 		} catch (BizException e) {
 			e.printStackTrace();
 			model.addAttribute("msg",e.getMessage());
+			System.out.println("登录失败");
 			return "login";
 		}
 		
 	}
 	
-	@GetMapping("/register")
-	public String register(@ModelAttribute("User") User u) {
-		return"register";
+	@GetMapping("/reg")
+	public String reg(@ModelAttribute("User") User u) {
+		return"reg";
 	}
-	@PostMapping("/toregister")
-	public String toregister(@ModelAttribute("User") @Valid User u,Errors errors,Model model) {
+	@PostMapping("/toreg")
+	public String toreg(@ModelAttribute("User") @Valid User u,Errors errors,Model model) {
 		if(errors.hasErrors()) {
-			return "register";
+			return "reg";
 		}
-		ubiz.register(u);
+		ubiz.reg(u);
 		model.addAttribute("msg","注册成功");
 		return "index";
 	}

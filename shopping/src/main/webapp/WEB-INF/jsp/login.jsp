@@ -41,7 +41,7 @@
 				<form:input type="text" path="upwd"  placeholder="密码"></form:input>
 				<form:errors path="upwd"></form:errors>
 			<p><input type="submit" name="" value="登  录"></p>
-				<p class="txt"><a class="" href="reg.html">免费注册</a><a href="forget.html">忘记密码？</a></p>
+				<p class="txt"><a class="" href="reg">免费注册</a><a href="forget">忘记密码？</a></p>
 			
 		</form:form>
 		</div>

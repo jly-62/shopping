@@ -30,7 +30,7 @@ public class UserBiz {
 	}
 
 
-	public void register(User u) {
+	public void reg(User u) {
 	       um.insert(u);
 	}
 }
