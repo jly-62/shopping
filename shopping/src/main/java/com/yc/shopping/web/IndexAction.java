@@ -20,7 +20,7 @@ public class IndexAction {
 	/**
 	 * 测试
 	 */
-	@RequestMapping("index")
+	@RequestMapping("admin")
 	public String index(){
 		return "admin/index";
 	}
