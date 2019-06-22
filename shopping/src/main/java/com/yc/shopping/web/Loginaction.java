@@ -28,8 +28,8 @@ public class Loginaction {
 	private UserBiz ubiz;
 	
 	@GetMapping("index")
-	public String home(){
-		return "home";
+	public String index(){
+		return "index";
 	}
 	
 	
@@ -48,7 +48,7 @@ public class Loginaction {
 			User dbu = ubiz.login(u);
 			model.addAttribute("loginedUser",dbu);
 			System.out.println("登录成功");
-			return "home";
+			return "index";
 		} catch (BizException e) {
 			e.printStackTrace();
 			model.addAttribute("msg",e.getMessage());
@@ -68,7 +68,7 @@ public class Loginaction {
 		}
 		ubiz.register(u);
 		model.addAttribute("msg","注册成功");
-		return "home";
+		return "index";
 	}
 	
 }

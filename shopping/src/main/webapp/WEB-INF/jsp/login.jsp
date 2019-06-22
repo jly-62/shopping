@@ -35,10 +35,10 @@
 				<p></p>
 				<div class="msg-warn hide"><b></b>公共场所不建议自动登录，以防账号丢失</div>
 			<form:input type="text" class="text" path="username" placeholder="昵称/邮箱/手机号"
-				value="Username" onfocus="this.value = '';"
-				onblur="if (this.value == '') {this.value = 'Username';}"></form:input>
+				 onfocus="this.value = '';"
+				></form:input>
 			<form:errors path="username"></form:errors>
-				<form:input type="password" path="upwd"  placeholder="密码"></form:input>
+				<form:input type="text" path="upwd"  placeholder="密码"></form:input>
 				<form:errors path="upwd"></form:errors>
 			<p><input type="submit" name="" value="登  录"></p>
 				<p class="txt"><a class="" href="reg.html">免费注册</a><a href="forget.html">忘记密码？</a></p>
