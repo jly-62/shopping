@@ -9,6 +9,10 @@
 		<link rel="stylesheet" type="text/css" href="css/public.css"/>
 		<link rel="stylesheet" type="text/css" href="css/login.css"/>
 	</head>
+	<script type="text/javascript">
+	
+	
+	</script>
 	<body>
 		<!-------------------reg-------------------------->
 		<div class="reg">
@@ -35,10 +39,8 @@
 			<form:errors path="upwd"></form:errors>
 			<input type="text" id="reupwd" value="" onfocus="this.value = '';" id="upwd" placeholder="确认密码"></input>
 			<form:errors path="upwd"></form:errors>
-			
 			<form:input type="text" class="text" path="email" value="" onfocus="this.value = '';" placeholder="邮箱"></form:input>
 			<form:errors path="email"></form:errors>
-			
 			<form:input type="text" class="text" path="tel" value="" onfocus="this.value = '';" placeholder="电话号码"></form:input>
 			<form:errors path="tel"></form:errors>
 			<p class="txtL txt"><input class="code" type="text" name="" value="" placeholder="验证码"><input type="submit"  value="从邮箱获取验证码"></p>

@@ -33,4 +33,8 @@ public class UserBiz {
 	public void reg(User u) {
 	       um.insert(u);
 	}
+	
+	public void myreg(User u) {
+	       um.insertSelective(u);
+	}
 }
