@@ -3,6 +3,7 @@ package com.yc.shopping.biz;
 import java.util.List;
 
 import javax.annotation.Resource;
+import javax.validation.Valid;
 
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -36,5 +37,11 @@ public class UserBiz {
 	
 	public void myreg(User u) {
 	       um.insertSelective(u);
+	}
+
+
+	public void update(@Valid User u) {
+		um.updateByPrimaryKeySelective(u);
+		
 	}
 }

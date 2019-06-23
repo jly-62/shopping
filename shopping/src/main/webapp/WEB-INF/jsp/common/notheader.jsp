@@ -6,8 +6,7 @@
 					<h1 class="fl"><a href="index.html"><img src="img/logo.png"/></a></h1>
 					<div class="fr clearfix" id="top1">
 						<p class="fl">
-						    <a href="mygxin" id="login" style='color:red;Font-size:18'>您好，尊敬的${user }!</a>
-							<a href="login" id="login" >注销账号</a>
+							<a href="login" id="login" >登录</a>
 							<a href="reg" id="reg">注册</a>
 						</p>
 						<form action="#" method="get" class="fl">

@@ -11,19 +11,25 @@
 	<body>
 		<!------------------------------head------------------------------>
 		<div class="head ding">
-			<%@ include file="common/header.jsp" %>
+			<%-- <%@ include file="common/header.jsp" %> --%>
+			
+			<%if(session.getAttribute("user")==null){%>
+	<jsp:include page="common/notheader.jsp"></jsp:include>
+	<% } else{%>
+	<jsp:include page="common/header.jsp"></jsp:include>
+	<%} %>
 		</div>
 		<!------------------------------idea------------------------------>
 		<div class="address mt">
 			<div class="wrapper clearfix">
-				<a href="index.html" class="fl">首页</a>
+				<a href="index" class="fl">首页</a>
 				<span>/</span>
-				<a href="mygxin.html" class="on">个人信息</a>
+				<a href="mygxin" class="on">个人信息</a>
 			</div>
 		</div>
 		
 		<!------------------------------Bott------------------------------>
-		<div class="Bott">
+		<!-- <div class="Bott">
 			<div class="wrapper clearfix">
 				<div class="zuo fl">
 					<h3>
@@ -48,16 +54,20 @@
 							<li><a href="remima.html">修改密码</a></li>
 						</ul>
 					</div>
-				</div>
+				</div>  -->
+				
+				<%@ include file="common/bott.jsp" %>
+				
+				
 				<div class="you fl">
 					<h2>个人信息</h2>
 					<div class="gxin">
 						<div class="tx"><a href="#"><img src="img/tx.png"/><p id="avatar">修改头像</p></a></div>
 						<div class="xx">
 							<h3 class="clearfix"><strong class="fl">基础资料</strong><a href="#" class="fr" id="edit1">编辑</a></h3>
-							<div>姓名：六六六</div>
-							<div>生日：1995-06-06</div>
-							<div>性别：女</div>
+							<div>姓名：${user }</div>
+							<div>生日：${birthday }</div>
+							<div>性别：${gender }</div>
 							<h3>高级设置</h3>
 							<!--<div><span class="fl">银行卡</span><a href="#" class="fr">管理</a></div>-->
 							<div><span class="fl">账号地区：中国</span><a href="#" class="fr" id="edit2">修改</a></div>
@@ -73,8 +83,8 @@
 			<div class="clearfix"><a href="#" class="fr gb"><img src="img/icon4.png"/></a></div>
 			<h3>编辑基础资料</h3>
 			<form action="#" method="get">
-				<p><label>姓名：</label><input type="text"  value="六六六" /></p>
-				<p><label>生日：</label><input type="text"   /></p>
+				<p><label>姓名：</label><input type="text"  value="${user }" /></p>
+				<p><label>生日：</label><input type="text"  value="${birthday }" /></p>
 				<p>
 					<label>性别：</label>
 					<span><input type="radio"  />男</span>

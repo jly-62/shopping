@@ -32,7 +32,7 @@
 			
 		<form:form action="tologin" method="post" id="loginForm"
 			modelAttribute="User">
-			<h1><a href="index.html"><img src="img/temp/logo.png"></a></h1>
+			<h1><a href="index"><img src="img/temp/logo.png"></a></h1>
 				<p></p>
 				<div class="msg-warn hide"><b></b>公共场所不建议自动登录，以防账号丢失</div>
 			<form:input type="text" class="text" path="username" placeholder="昵称/邮箱/手机号"

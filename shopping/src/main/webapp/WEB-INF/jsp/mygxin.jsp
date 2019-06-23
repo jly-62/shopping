@@ -11,29 +11,35 @@
 	<body>
 		<!------------------------------head------------------------------>
 		<div class="head ding">
-			<%@ include file="common/header.jsp" %>
+			<%-- <%@ include file="common/header.jsp" %> --%>
+			
+			<%if(session.getAttribute("user")==null){%>
+	<jsp:include page="common/notheader.jsp"></jsp:include>
+	<% } else{%>
+	<jsp:include page="common/header.jsp"></jsp:include>
+	<%} %>
 		</div>
 		<!------------------------------idea------------------------------>
 		<div class="address mt" id="add">
 			<div class="wrapper clearfix">
-				<a href="index.html" class="fl">首页</a>
+				<a href="index" class="fl">首页</a>
 				<span>/</span>
-				<a href="mygxin.html" class="on">个人中心</a>
+				<a href="mygxin.jsp" class="on">个人中心</a>
 			</div>
 		</div>
 		
-		<!------------------------------Bott------------------------------>
+		<%-- <!------------------------------Bott------------------------------>
 		<div class="Bott">
 			<div class="wrapper clearfix">
 				<div class="zuo fl">
 					<h3>
 						<a href="#"><img src="img/tx.png"/></a>
-						<p class="clearfix"><span class="fl">[羊羊羊]</span><span class="fr">[退出登录]</span></p>
+						<p class="clearfix"><span class="fl"><a href="mygxin">${user }</a></span><span class="fr"><a href="login">[退出登录]</a></span></p>
 					</h3>
 					<div>
 						<h4>我的交易</h4>
 						<ul>
-							<li><a href="cart.html">我的购物车</a></li>
+							<li><a href="cart">我的购物车</a></li>
 							<li><a href="myorderq.html">我的订单</a></li>
 							<li><a href="myprod.html">评价晒单</a></li>
 						</ul>
@@ -48,14 +54,17 @@
 							<li><a href="remima.html">修改密码</a></li>
 						</ul>
 					</div>
-				</div>
+				</div> --%>
+				
+				<%@ include file="common/bott.jsp" %>
+				
 				<div class="you fl">
 					<div class="tx clearfix">
 						<div class="fl clearfix">
 							<a href="#" class="fl"><img src="img/tx.png"/></a>
-							<p class="fl"><span>六六六</span><a href="mygrxx.html">修改个人信息></a></p>
+							<p class="fl"><span>${user }</span><a href="mygrxx">修改个人信息></a></p>
 						</div>
-						<div class="fr">绑定邮箱：12****4@**.com</div>
+						<div class="fr">绑定邮箱：${email }</div>
 					</div>
 					<div class="bott">
 						<div class="clearfix">

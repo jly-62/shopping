@@ -23,7 +23,7 @@ import com.yc.shopping.vo.Result;
 
 @Controller
 @SessionAttributes("loginedUser")
-public class Loginaction {
+public class LoginAction {
 	@Resource
 	private UserMapper um;
 	@Resource
@@ -50,6 +50,12 @@ public class Loginaction {
 			User dbu = ubiz.login(u);
 			model.addAttribute("loginedUser",dbu);
 			request.getSession().setAttribute("user",u.getUsername());
+			request.getSession().setAttribute("upwd",u.getUpwd());
+			request.getSession().setAttribute("email",u.getEmail());
+			request.getSession().setAttribute("tel",u.getTel());
+			request.getSession().setAttribute("gender",u.getGender());
+			request.getSession().setAttribute("header",u.getHeader());
+			request.getSession().setAttribute("birthday",u.getBirthday());
 			System.out.println("登录成功");
 			return "index";
 		} catch (BizException e) {
@@ -75,7 +81,6 @@ public class Loginaction {
 		model.addAttribute("msg","注册成功");
 		return "regsuccess";
 	}
-	
 	
 	
 }

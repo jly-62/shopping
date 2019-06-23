@@ -8,6 +8,12 @@
 		<link rel="stylesheet" type="text/css" href="css/public.css"/>
 		<link rel="stylesheet" type="text/css" href="css/proList.css" />
 	</head>
+	
+<style type="text/css">
+/* 去下划线 */
+a{text-decoration:none;}
+
+</style>
 	<body>
 		<!--------------------------------------cart--------------------->
 		<div class="head ding">
@@ -26,7 +32,8 @@
 				<p class=" wrapper clearfix">
 					<span class="fl">购物车</span>
 					<img class="top" src="img/temp/cartTop01.png">
-					<a href="index.html" class="fr">继续购物&gt;</a>
+					<a href="mygxin" class="fr" style='color:red;Font-size:18'>返回个人中心&gt;</a>
+					<a href="index" class="fr">继续购物&gt;</a>
 				</p>
 			</div>
 			<!-----------------table------------------->
