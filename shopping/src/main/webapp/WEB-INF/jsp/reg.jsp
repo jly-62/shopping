@@ -10,7 +10,19 @@
 		<link rel="stylesheet" type="text/css" href="css/login.css"/>
 	</head>
 	<script type="text/javascript">
-	
+    /* function validate() {
+        var pwd1 = document.getElementById("pwd1").value;
+        var pwd2 = document.getElementById("pwd2").value;
+
+        if(pwd1 == pwd2) {
+            document.getElementById("tishi").innerHTML="<font color='green'>两次密码相同</font>";
+            document.getElementById("submit").disabled = false;
+        }
+        else {
+            document.getElementById("tishi").innerHTML="<font color='red'>两次密码不相同</font>";
+          document.getElementById("submit").disabled = true;
+        }
+    } */
 	
 	</script>
 	<body>
@@ -35,10 +47,12 @@
 				<p>用户注册</p>
 			<form:input type="text" class="text" path="username" value="" onfocus="this.value = '';" placeholder="用户名"></form:input>
 			<form:errors path="username"></form:errors>
-			<form:input type="text" path="upwd" value="" onfocus="this.value = '';" id="upwd" placeholder="密码"></form:input>
+			
+			<form:input type="text" path="upwd" value="" onfocus="this.value = '';" id="pwd1" placeholder="密码"></form:input>
 			<form:errors path="upwd"></form:errors>
-			<input type="text" id="reupwd" value="" onfocus="this.value = '';" id="upwd" placeholder="确认密码"></input>
+			<input type="text" id="reupwd" value="" onfocus="this.value = '';" id="pwd2" placeholder="确认密码"></input>
 			<form:errors path="upwd"></form:errors>
+			
 			<form:input type="text" class="text" path="email" value="" onfocus="this.value = '';" placeholder="邮箱"></form:input>
 			<form:errors path="email"></form:errors>
 			<form:input type="text" class="text" path="tel" value="" onfocus="this.value = '';" placeholder="电话号码"></form:input>

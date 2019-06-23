@@ -49,6 +49,7 @@ public class Loginaction {
 		}try {
 			User dbu = ubiz.login(u);
 			model.addAttribute("loginedUser",dbu);
+			request.getSession().setAttribute("user",u.getUsername());
 			System.out.println("登录成功");
 			return "index";
 		} catch (BizException e) {
@@ -62,8 +63,9 @@ public class Loginaction {
 	
 	@GetMapping("/reg")
 	public String reg(@ModelAttribute("User") User u) {
-		return"reg";
+		return "reg";
 	}
+	
 	@PostMapping("/toreg")
 	public String toreg(@ModelAttribute("User") @Valid User u,Errors errors,Model model) {
 		if(errors.hasErrors()) {

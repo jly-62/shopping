@@ -6,7 +6,7 @@
 					<h1 class="fl"><a href="index.html"><img src="img/logo.png"/></a></h1>
 					<div class="fr clearfix" id="top1">
 						<p class="fl">
-							<a href="login.html" id="login">登录</a>
+							<a href="login.html" id="login">您好，尊敬的${user }!</a>
 							<a href="reg.html" id="reg">注册</a>
 						</p>
 						<form action="#" method="get" class="fl">
