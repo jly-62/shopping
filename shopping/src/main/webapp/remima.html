@@ -138,7 +138,12 @@
 						<p class="op">6-16 个字符，需使用字母、数字或符号组合，不能使用纯数字、纯字母、纯符号</p>
 						<p><span>重复新密码：</span><input type="text" /></p>
 						<p class="op">请再次输入密码</p>
-						<p><span>验证码：</span><input type="text" /><img src="img/temp/code.jpg" alt="" /></p>
+						
+						
+						
+						<p><span>验证码：</span><input type="text" />
+						<a href="javascript:void(0);" title="点击更换验证码">
+						<img id="imgVerify" src="" alt="更换验证码" height="36" width="100%" onclick="getVerify(this);"></p>
 						<p class="op">按右图输入验证码，不区分大小写</p>
 						<input type="submit" value="提交" />
 					</form>

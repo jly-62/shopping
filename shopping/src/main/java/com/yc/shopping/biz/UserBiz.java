@@ -29,7 +29,16 @@ public class UserBiz {
 		}
 		return list.get(0);
 	}
-
+	
+	public User query(User u) throws BizException{
+		UserExample ue = new UserExample();
+		ue.createCriteria().andUsernameLike(u.getUsername()).andUpwdLike(u.getUpwd()).andEmailLike(u.getEmail()).andTelLike(u.getTel()).andGenderLike(u.getGender()).andHeaderLike(u.getHeader());
+		List<User> list=um.selectByExample(ue);
+		
+		return list.get(0);
+	}
+	
+	
 
 	public void reg(User u) {
 	       um.insert(u);
@@ -44,4 +53,5 @@ public class UserBiz {
 		um.updateByPrimaryKeySelective(u);
 		
 	}
+
 }

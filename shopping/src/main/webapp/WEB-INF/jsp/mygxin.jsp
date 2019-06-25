@@ -13,7 +13,7 @@
 		<div class="head ding">
 			<%-- <%@ include file="common/header.jsp" %> --%>
 			
-			<%if(session.getAttribute("user")==null){%>
+			<%if(session.getAttribute("user")==null){%>-
 	<jsp:include page="common/notheader.jsp"></jsp:include>
 	<% } else{%>
 	<jsp:include page="common/header.jsp"></jsp:include>

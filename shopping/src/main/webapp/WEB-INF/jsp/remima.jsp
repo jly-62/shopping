@@ -29,7 +29,7 @@
 		</div>
 		
 		<!------------------------------Bott------------------------------>
-		<div class="Bott">
+		<!-- <div class="Bott">
 			<div class="wrapper clearfix">
 				<div class="zuo fl">
 					<h3>
@@ -54,10 +54,13 @@
 							<li  class="on"><a href="remima.html">修改密码</a></li>
 						</ul>
 					</div>
-				</div>
+				</div> -->
+				
+				<%@ include file="common/bott.jsp" %>
+	
 				<div class="you fl">
 					<h2>修改密码</h2>
-					<form action="#" method="get" class="remima">
+					 <form action="#" method="get" class="remima">
 						<p><span>选择验证身份方式：</span><input type="checkbox" />密码验证  <input type="checkbox" />邮箱验证 </p>
 						<p><span>原密码：</span><input type="text" /></p>
 						<p class="op">输入原密码</p>
@@ -65,10 +68,24 @@
 						<p class="op">6-16 个字符，需使用字母、数字或符号组合，不能使用纯数字、纯字母、纯符号</p>
 						<p><span>重复新密码：</span><input type="text" /></p>
 						<p class="op">请再次输入密码</p>
-						<p><span>验证码：</span><input type="text" /><img src="img/temp/code.jpg" alt="" /></p>
+						
+						
+					    <p><span>验证码：</span><input type="text" /><img src="img/temp/code.jpg" alt="" /></p>
 						<p class="op">按右图输入验证码，不区分大小写</p>
-						<input type="submit" value="提交" />
-					</form>
+						<input type="submit" value="提交" /> 
+						
+						<!-- <label id="password-lbl" for="password" class="required">验证码 ：</label>
+						<div style="clear: none;">
+						<input name="smscode" id="register_sms" placeholder="输入验证码" type="text">
+						<img src="Check.s" width="124" height="33" id="img">
+						<a onClick="ck()"><h5>看不清？点我刷新验证码</h5></a> -->
+								
+						</div>
+						
+						
+					</form> 
+					
+					
 				</div>
 			</div>
 		</div>

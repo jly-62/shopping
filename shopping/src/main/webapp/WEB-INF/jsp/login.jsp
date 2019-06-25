@@ -30,7 +30,7 @@
 			
 			
 			
-		<form:form action="tologin" method="post" id="loginForm"
+		<form:form action="index" method="post" id="loginForm"
 			modelAttribute="User">
 			<h1><a href="index"><img src="img/temp/logo.png"></a></h1>
 				<p></p>
@@ -39,8 +39,26 @@
 				 onfocus="this.value = '';"
 				></form:input>
 			<form:errors path="username"></form:errors>
+			
+			
 				<form:input type="text" path="upwd"  placeholder="密码"></form:input>
 				<form:errors path="upwd"></form:errors>
+				
+				
+				<!-- <div class="form-group">
+									<div class="col-sm-4 control-label">
+										<label id="password-lbl" for="password" class="required">验证码 ：</label>
+									</div>
+									<div class="col-sm-8" style="clear: none;">
+									<input class="form-control" name="smscode" id="register_sms" placeholder="输入验证码" type="text">
+									<span class="input-group-btn">
+									<img src="Check.s" width="124" height="33" id="img">
+									<a onClick="ck()"><h5>看不清？点我刷新验证码</h5></a>
+									</span>
+									</div>
+						</div> -->
+						
+						
 			<p><input type="submit" name="" value="登  录"></p>
 				<p class="txt"><a class="" href="reg">免费注册</a><a href="forget">忘记密码？</a></p>
 			

@@ -1,6 +1,7 @@
 package com.yc.shopping.web;
 
 import javax.annotation.Resource;
+
 import javax.validation.Valid;
 
 import org.springframework.stereotype.Controller;
@@ -9,11 +10,13 @@ import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.yc.shopping.bean.User;
 import com.yc.shopping.biz.UserBiz;
 import com.yc.shopping.dao.UserMapper;
+
 
 
 @Controller
@@ -57,7 +60,7 @@ public class UserAction {
 	
 	@GetMapping("remima")
 	public String remima(){
-		return "remimas";
+		return "remima";
 	}
 	
 	@PostMapping("/update")
@@ -70,4 +73,6 @@ public class UserAction {
 		return "updateSuccess";
 		}
 	}
+	
+	
 }

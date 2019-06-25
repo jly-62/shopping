@@ -3,7 +3,7 @@ package com.yc.shopping.web;
 import javax.annotation.Resource;
 
 import javax.servlet.http.HttpServletRequest;
-
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.stereotype.Controller;
@@ -13,12 +13,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.yc.shopping.bean.User;
 import com.yc.shopping.biz.BizException;
 import com.yc.shopping.biz.UserBiz;
 import com.yc.shopping.dao.UserMapper;
+
 import com.yc.shopping.vo.Result;
 
 @Controller
@@ -29,9 +31,11 @@ public class LoginAction {
 	@Resource
 	private UserBiz ubiz;
 	
+
 	@GetMapping("index")
 	public String index(){
 		return "index";
+	
 	}
 	
 	
@@ -41,23 +45,23 @@ public class LoginAction {
 	}
 	
 
-	@PostMapping("tologin")
+	@PostMapping("index")
 	public String tologin(@ModelAttribute("User") @Valid User u,Errors errors,Model model,HttpServletRequest request) {
+		
 		System.out.println(errors);
 		if(errors.hasFieldErrors("username") || errors.hasFieldErrors("upwd")) {
 			return "login";
 		}try {
+			
+			
 			User dbu = ubiz.login(u);
 			model.addAttribute("loginedUser",dbu);
-			request.getSession().setAttribute("user",u.getUsername());
-			request.getSession().setAttribute("upwd",u.getUpwd());
-			request.getSession().setAttribute("email",u.getEmail());
-			request.getSession().setAttribute("tel",u.getTel());
-			request.getSession().setAttribute("gender",u.getGender());
-			request.getSession().setAttribute("header",u.getHeader());
-			request.getSession().setAttribute("birthday",u.getBirthday());
-			System.out.println("登录成功");
+			
+			System.out.println("密码正确");
+			
 			return "index";
+			
+			
 		} catch (BizException e) {
 			e.printStackTrace();
 			model.addAttribute("msg",e.getMessage());
@@ -67,12 +71,13 @@ public class LoginAction {
 		
 	}
 	
-	@GetMapping("/reg")
+	
+	/*@GetMapping("/reg")
 	public String reg(@ModelAttribute("User") User u) {
 		return "reg";
-	}
+	}*/
 	
-	@PostMapping("/toreg")
+	@PostMapping("/reg")
 	public String toreg(@ModelAttribute("User") @Valid User u,Errors errors,Model model) {
 		if(errors.hasErrors()) {
 			return "reg";
