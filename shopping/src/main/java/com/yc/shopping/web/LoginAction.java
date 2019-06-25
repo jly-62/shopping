@@ -56,6 +56,19 @@ public class LoginAction {
 			
 			User dbu = ubiz.login(u);
 			model.addAttribute("loginedUser",dbu);
+			request.getSession().setAttribute("user",u.getUsername());
+			request.getSession().setAttribute("upwd",u.getUpwd());
+			
+			
+			/**
+			 * 
+			 * 未存值到session
+			 */
+			request.getSession().setAttribute("email",u.getEmail());
+			request.getSession().setAttribute("tel",u.getTel());
+			request.getSession().setAttribute("gender",u.getGender());
+			request.getSession().setAttribute("header",u.getHeader());
+			request.getSession().setAttribute("birthday",u.getBirthday());
 			
 			System.out.println("密码正确");
 			
