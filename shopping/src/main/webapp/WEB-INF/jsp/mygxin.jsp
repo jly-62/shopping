@@ -59,6 +59,7 @@
 				
 				<%@ include file="common/bott.jsp" %>
 				
+				
 				<div class="you fl">
 					<div class="tx clearfix">
 						<div class="fl clearfix">
