@@ -8,13 +8,14 @@ import javax.validation.Valid;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.github.pagehelper.Page;
+import com.yc.shopping.bean.Product;
 import com.yc.shopping.bean.User;
 import com.yc.shopping.bean.UserExample;
 import com.yc.shopping.dao.UserMapper;
 
 
 @Service
-@Transactional(rollbackFor= BizException.class)
 public class UserBiz {
 	@Resource
 	private UserMapper um;
@@ -43,15 +44,12 @@ public class UserBiz {
 	public void reg(User u) {
 	       um.insert(u);
 	}
+
+	public List<User> findAll() {
+		// TODO Auto-generated method stub
+		return um.selectByExample(null);
+	}
+
 	
-	public void myreg(User u) {
-	       um.insertSelective(u);
-	}
-
-
-	public void update(@Valid User u) {
-		um.updateByPrimaryKeySelective(u);
-		
-	}
 
 }

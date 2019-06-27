@@ -1,5 +1,8 @@
 package com.yc.shopping.web;
 
+import java.util.List;
+import java.util.Map;
+
 import javax.annotation.Resource;
 
 import javax.servlet.http.HttpServletRequest;
@@ -15,6 +18,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.yc.shopping.bean.User;
 import com.yc.shopping.biz.BizException;
@@ -83,21 +87,20 @@ public class LoginAction {
 		}
 		
 	}
-	
-	
-	/*@GetMapping("/reg")
+
+	@GetMapping("/reg")
 	public String reg(@ModelAttribute("User") User u) {
 		return "reg";
-	}*/
+	}
 	
-	@PostMapping("/reg")
+	@PostMapping("reg")
 	public String toreg(@ModelAttribute("User") @Valid User u,Errors errors,Model model) {
 		if(errors.hasErrors()) {
 			return "reg";
 		}
 		ubiz.reg(u);
 		model.addAttribute("msg","注册成功");
-		return "regsuccess";
+		return "login";
 	}
 	
 	

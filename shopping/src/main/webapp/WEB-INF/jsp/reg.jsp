@@ -10,19 +10,10 @@
 		<link rel="stylesheet" type="text/css" href="css/login.css"/>
 	</head>
 	<script type="text/javascript">
-    /* function validate() {
-        var pwd1 = document.getElementById("pwd1").value;
-        var pwd2 = document.getElementById("pwd2").value;
-
-        if(pwd1 == pwd2) {
-            document.getElementById("tishi").innerHTML="<font color='green'>两次密码相同</font>";
-            document.getElementById("submit").disabled = false;
-        }
-        else {
-            document.getElementById("tishi").innerHTML="<font color='red'>两次密码不相同</font>";
-          document.getElementById("submit").disabled = true;
-        }
-    } */
+	function ale()
+	{//这个基本没有什么说的，就是弹出一个提醒的对话框
+	    alert("注册成功，点击跳转为登录页面");
+	}
 	
 	</script>
 	<body>
@@ -41,7 +32,7 @@
 				<a href="#" class="off"><img src="img/temp/off.png"></a>
 			</form> -->
 			
-			<form:form action="toreg" method="post" id="regForm"
+			<form:form action="reg" method="post" id="regForm"
 			modelAttribute="User">
 			<h1><a href="index"><img src="img/temp/logo.png"></a></h1>
 				<p>用户注册</p>
@@ -58,7 +49,7 @@
 			<form:input type="text" class="text" path="tel" value="" onfocus="this.value = '';" placeholder="电话号码"></form:input>
 			<form:errors path="tel"></form:errors>
 			<p class="txtL txt"><input class="code" type="text" name="" value="" placeholder="验证码"><input type="submit"  value="从邮箱获取验证码"></p>
-				<p><input type="submit" name="" value="注册"></p>
+				<p><input type="submit" name="" value="注册" onclick="ale()"></p>
 				<p class="txtL txt">完成此注册，即表明您同意了我们的<a href="#"><使用条款和隐私策略></a>
 				<p class="txt"><a href="login"><span></span>已有账号登录</a></p>
 				<a href="index" class="off"><img src="img/temp/off.png"></a>

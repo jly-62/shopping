@@ -6,25 +6,22 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
-
-import com.yc.shopping.biz.UserBiz;
-
-
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 @Controller
-public class UserAction {
+public class productAction {
 
-	
 	@Resource
-	private UserBiz ubiz;
+	private ProductBiz pbiz;
 	
-	@GetMapping("mygxin")
-	public String mygxin() {
-		return "mygxin";
+	@GetMapping("proDetail")
+	public String proDetail(){
+		return "proDetail";
 	}
 	
 	@ModelAttribute
 	public void initData(Model model) {
-		model.addAttribute("ulist",ubiz.findAll());
+		model.addAttribute("plist",pbiz.findAll());
 	}
 }

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 	<head lang="en">
@@ -64,18 +65,24 @@
 				</div>
 				<h2><img src="img/ih2.jpg"/></h2>
 				<div class="flower clearfix tran">
-					<a href="proDetail.html" class="clearfix">
+				
+				 <c:forEach items="${plist }" var="c">
+					<a href="proDetail?id=${c.id }">
 						<dl>
 							<dt>
 								<span class="abl"></span>
 								<img src="img/flo1.jpg"/>
 								<span class="abr"></span>
 							</dt>
-							<dd>【花艺】七头美丽玫瑰仿真花束</dd>
-							<dd><span>¥ 79.00</span></dd>
+							<dd>${c.name }</dd>
+							<dd><span>${c.price }</span></dd>
 						</dl>
 					</a>
-					<a href="proDetail.html">
+				</c:forEach> 	
+					
+					
+					 
+					<!--  <a href="proDetail.html">
 						<dl>
 							<dt>
 								<span class="abl"></span>
@@ -96,10 +103,15 @@
 							<dd>【花艺】七头美丽玫瑰仿真花束</dd>
 							<dd><span>¥ 79.00</span></dd>
 						</dl>
-					</a>
+					</a>  -->
+					
+					
 				</div>
+				
+				
+				
 				<div class="flower clearfix tran">
-					<a href="proDetail.html">
+					<a href="proDetail.html"> 
 						<dl>
 							<dt>
 								<span class="abl"></span>
@@ -133,8 +145,13 @@
 						</dl>
 					</a>
 				</div>
+				
+				
+				
+				
+				
 			</div>
-		</div>
+		</div> 
 		
 		<!------------------------------ad------------------------------>
 		<a href="#" class="ad"><img src="img/ib1.jpg"/></a>
