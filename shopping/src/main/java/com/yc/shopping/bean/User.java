@@ -2,21 +2,15 @@ package com.yc.shopping.bean;
 
 import java.util.Date;
 
-import javax.validation.constraints.NotEmpty;
-
 public class User {
     private Integer uid;
 
-    @NotEmpty(message="请输入用户名！")
     private String username;
 
-    @NotEmpty(message="请输入密码！")
     private String upwd;
 
-    @NotEmpty(message="请输入邮箱！")
     private String email;
 
-    @NotEmpty(message="请输入电话号码！")
     private String tel;
 
     private String gender;
@@ -63,7 +57,6 @@ public class User {
 
     public void setTel(String tel) {
         this.tel = tel == null ? null : tel.trim();
-
     }
 
     public String getGender() {

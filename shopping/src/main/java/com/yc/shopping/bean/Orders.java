@@ -1,6 +1,6 @@
 package com.yc.shopping.bean;
 
-import java.sql.Timestamp;
+import java.util.Date;
 
 public class Orders {
     private Integer oid;
@@ -13,21 +13,23 @@ public class Orders {
 
     private Integer addressid;
 
-    private Timestamp createdate;
+    private Date createdate;
 
-    private Timestamp paydate;
+    private Date paydate;
 
     private String payment;
 
-    private Timestamp cenceldate;
+    private Date cenceldate;
 
-    private Timestamp senddate;
+    private Date senddate;
 
-    private Timestamp confirmdate;
+    private Date confirmdate;
 
     private Integer stock;
 
     private Integer status;
+
+    private String sendment;
 
     public Integer getOid() {
         return oid;
@@ -69,19 +71,19 @@ public class Orders {
         this.addressid = addressid;
     }
 
-    public Timestamp getCreatedate() {
+    public Date getCreatedate() {
         return createdate;
     }
 
-    public void setCreatedate(Timestamp createdate) {
+    public void setCreatedate(Date createdate) {
         this.createdate = createdate;
     }
 
-    public Timestamp getPaydate() {
+    public Date getPaydate() {
         return paydate;
     }
 
-    public void setPaydate(Timestamp paydate) {
+    public void setPaydate(Date paydate) {
         this.paydate = paydate;
     }
 
@@ -93,28 +95,27 @@ public class Orders {
         this.payment = payment == null ? null : payment.trim();
     }
 
-    public Timestamp getCenceldate() {
+    public Date getCenceldate() {
         return cenceldate;
     }
 
-    public void setCenceldate(Timestamp cenceldate) {
+    public void setCenceldate(Date cenceldate) {
         this.cenceldate = cenceldate;
     }
 
-    public Timestamp getSenddate() {
+    public Date getSenddate() {
         return senddate;
     }
 
-    public void setSenddate(Timestamp senddate) {
+    public void setSenddate(Date senddate) {
         this.senddate = senddate;
     }
 
-    public Timestamp getConfirmdate() {
+    public Date getConfirmdate() {
         return confirmdate;
     }
 
-    public void setConfirmdate(Timestamp confirmdate) {
-
+    public void setConfirmdate(Date confirmdate) {
         this.confirmdate = confirmdate;
     }
 
@@ -132,5 +133,13 @@ public class Orders {
 
     public void setStatus(Integer status) {
         this.status = status;
+    }
+
+    public String getSendment() {
+        return sendment;
+    }
+
+    public void setSendment(String sendment) {
+        this.sendment = sendment == null ? null : sendment.trim();
     }
 }

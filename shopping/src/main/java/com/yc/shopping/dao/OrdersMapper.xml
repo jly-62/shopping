@@ -15,6 +15,7 @@
     <result column="confirmDate" jdbcType="TIMESTAMP" property="confirmdate" />
     <result column="stock" jdbcType="INTEGER" property="stock" />
     <result column="status" jdbcType="INTEGER" property="status" />
+    <result column="sendment" jdbcType="VARCHAR" property="sendment" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -76,7 +77,7 @@
   </sql>
   <sql id="Base_Column_List">
     oid, uid, pid, price, addressId, createDate, payDate, payment, cencelDate, sendDate, 
-    confirmDate, stock, status
+    confirmDate, stock, status, sendment
   </sql>
   <select id="selectByExample" parameterType="com.yc.shopping.bean.OrdersExample" resultMap="BaseResultMap">
     select
@@ -113,12 +114,12 @@
       price, addressId, createDate, 
       payDate, payment, cencelDate, 
       sendDate, confirmDate, stock, 
-      status)
+      status, sendment)
     values (#{oid,jdbcType=INTEGER}, #{uid,jdbcType=INTEGER}, #{pid,jdbcType=INTEGER}, 
       #{price,jdbcType=DOUBLE}, #{addressid,jdbcType=INTEGER}, #{createdate,jdbcType=TIMESTAMP}, 
       #{paydate,jdbcType=TIMESTAMP}, #{payment,jdbcType=VARCHAR}, #{cenceldate,jdbcType=TIMESTAMP}, 
       #{senddate,jdbcType=TIMESTAMP}, #{confirmdate,jdbcType=TIMESTAMP}, #{stock,jdbcType=INTEGER}, 
-      #{status,jdbcType=INTEGER})
+      #{status,jdbcType=INTEGER}, #{sendment,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.yc.shopping.bean.Orders">
     insert into orders
@@ -162,6 +163,9 @@
       <if test="status != null">
         status,
       </if>
+      <if test="sendment != null">
+        sendment,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="oid != null">
@@ -202,6 +206,9 @@
       </if>
       <if test="status != null">
         #{status,jdbcType=INTEGER},
+      </if>
+      <if test="sendment != null">
+        #{sendment,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -253,6 +260,9 @@
       <if test="record.status != null">
         status = #{record.status,jdbcType=INTEGER},
       </if>
+      <if test="record.sendment != null">
+        sendment = #{record.sendment,jdbcType=VARCHAR},
+      </if>
     </set>
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
@@ -272,7 +282,8 @@
       sendDate = #{record.senddate,jdbcType=TIMESTAMP},
       confirmDate = #{record.confirmdate,jdbcType=TIMESTAMP},
       stock = #{record.stock,jdbcType=INTEGER},
-      status = #{record.status,jdbcType=INTEGER}
+      status = #{record.status,jdbcType=INTEGER},
+      sendment = #{record.sendment,jdbcType=VARCHAR}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -316,6 +327,9 @@
       <if test="status != null">
         status = #{status,jdbcType=INTEGER},
       </if>
+      <if test="sendment != null">
+        sendment = #{sendment,jdbcType=VARCHAR},
+      </if>
     </set>
     where oid = #{oid,jdbcType=INTEGER}
   </update>
@@ -332,7 +346,56 @@
       sendDate = #{senddate,jdbcType=TIMESTAMP},
       confirmDate = #{confirmdate,jdbcType=TIMESTAMP},
       stock = #{stock,jdbcType=INTEGER},
-      status = #{status,jdbcType=INTEGER}
+      status = #{status,jdbcType=INTEGER},
+      sendment = #{sendment,jdbcType=VARCHAR}
     where oid = #{oid,jdbcType=INTEGER}
   </update>
+  
+  <resultMap type="com.yc.shopping.bean.Orders2" id="orders2" autoMapping="true">
+  	<id column="oid" property="oid"/>
+  	<association property="address" javaType="com.yc.shopping.bean.Address" autoMapping="true">
+		<id column="addressid" property="addressid"/>
+	</association>
+  </resultMap>
+  <select id="selectOrders2" resultMap="orders2">
+		select <include refid="baseColumn"></include> from orders a left join address c
+		on a.addressId=c.addressId 
+	</select>
+	
+	<select id="selectOrders2ByExample" parameterType="com.yc.shopping.bean.OrdersExample" resultMap="orders2">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="baseColumn" />
+    from orders a left join address c on a.addressId=c.addressId 
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+	<sql id="baseColumn">oid,addressee,c.tel,address,a.price,a.sendment</sql>
+	
+	
+	 <resultMap type="com.yc.shopping.bean.Orders2" id="orders2ById" autoMapping="true">
+	  	<id column="oid" property="oid"/>
+	  	<association property="orderinfo" javaType="com.yc.shopping.bean.Orderinfo" autoMapping="true">
+			<id column="orderinfoid" property="orderinfoid"/>
+		</association>
+	  	<association property="address" javaType="com.yc.shopping.bean.Address" autoMapping="true">
+			<id column="addressid" property="addressid"/>
+		</association>
+		<association property="product" javaType="com.yc.shopping.bean.Product" autoMapping="true">
+			<id column="pid" property="pid"/>
+		</association>
+		<association property="user" javaType="com.yc.shopping.bean.User" autoMapping="true">
+			<id column="uid" property="uid"/>
+		</association>
+  </resultMap>
+	<select id="selectById" resultMap="orders2ById">
+		select * from orderinfo o right join (select * from orders where oid = #{id}) a on o.oid=a.oid left join address b on a.addressid = b.addressid left join product c on 
+		a.pid = c.pid
+	</select>
 </mapper>

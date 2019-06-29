@@ -412,7 +412,6 @@ public class UserExample {
             return (Criteria) this;
         }
 
-
         public Criteria andTelEqualTo(String value) {
             addCriterion("tel =", value, "tel");
             return (Criteria) this;
@@ -469,7 +468,6 @@ public class UserExample {
         }
 
         public Criteria andTelNotBetween(String value1, String value2) {
-
             addCriterion("tel not between", value1, value2, "tel");
             return (Criteria) this;
         }

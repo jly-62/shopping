@@ -5,7 +5,7 @@ public class Address {
 
     private Integer uid;
 
-    private String adderss;
+    private String address;
 
     private Short province;
 
@@ -18,6 +18,8 @@ public class Address {
     private String tel;
 
     private String isdedault;
+
+    private String addressee;
 
     public Integer getAddressid() {
         return addressid;
@@ -35,12 +37,12 @@ public class Address {
         this.uid = uid;
     }
 
-    public String getAdderss() {
-        return adderss;
+    public String getAddress() {
+        return address;
     }
 
-    public void setAdderss(String adderss) {
-        this.adderss = adderss == null ? null : adderss.trim();
+    public void setAddress(String address) {
+        this.address = address == null ? null : address.trim();
     }
 
     public Short getProvince() {
@@ -81,7 +83,6 @@ public class Address {
 
     public void setTel(String tel) {
         this.tel = tel == null ? null : tel.trim();
-
     }
 
     public String getIsdedault() {
@@ -90,5 +91,13 @@ public class Address {
 
     public void setIsdedault(String isdedault) {
         this.isdedault = isdedault == null ? null : isdedault.trim();
+    }
+
+    public String getAddressee() {
+        return addressee;
+    }
+
+    public void setAddressee(String addressee) {
+        this.addressee = addressee == null ? null : addressee.trim();
     }
 }

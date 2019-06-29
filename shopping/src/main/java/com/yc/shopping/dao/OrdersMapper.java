@@ -1,6 +1,7 @@
 package com.yc.shopping.dao;
 
 import com.yc.shopping.bean.Orders;
+import com.yc.shopping.bean.Orders2;
 import com.yc.shopping.bean.OrdersExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
@@ -27,4 +28,10 @@ public interface OrdersMapper {
     int updateByPrimaryKeySelective(Orders record);
 
     int updateByPrimaryKey(Orders record);
+
+	List<Orders2> selectOrders2();
+
+	 List<Orders2> selectOrders2ByExample(OrdersExample oe);
+
+	List<Orders2> selectById(int id);
 }

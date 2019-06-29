@@ -1,7 +1,7 @@
 package com.yc.shopping.bean;
 
-import java.sql.Timestamp;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class OrdersExample {
@@ -415,52 +415,52 @@ public class OrdersExample {
             return (Criteria) this;
         }
 
-        public Criteria andCreatedateEqualTo(Timestamp value) {
+        public Criteria andCreatedateEqualTo(Date value) {
             addCriterion("createDate =", value, "createdate");
             return (Criteria) this;
         }
 
-        public Criteria andCreatedateNotEqualTo(Timestamp value) {
+        public Criteria andCreatedateNotEqualTo(Date value) {
             addCriterion("createDate <>", value, "createdate");
             return (Criteria) this;
         }
 
-        public Criteria andCreatedateGreaterThan(Timestamp value) {
+        public Criteria andCreatedateGreaterThan(Date value) {
             addCriterion("createDate >", value, "createdate");
             return (Criteria) this;
         }
 
-        public Criteria andCreatedateGreaterThanOrEqualTo(Timestamp value) {
+        public Criteria andCreatedateGreaterThanOrEqualTo(Date value) {
             addCriterion("createDate >=", value, "createdate");
             return (Criteria) this;
         }
 
-        public Criteria andCreatedateLessThan(Timestamp value) {
+        public Criteria andCreatedateLessThan(Date value) {
             addCriterion("createDate <", value, "createdate");
             return (Criteria) this;
         }
 
-        public Criteria andCreatedateLessThanOrEqualTo(Timestamp value) {
+        public Criteria andCreatedateLessThanOrEqualTo(Date value) {
             addCriterion("createDate <=", value, "createdate");
             return (Criteria) this;
         }
 
-        public Criteria andCreatedateIn(List<Timestamp> values) {
+        public Criteria andCreatedateIn(List<Date> values) {
             addCriterion("createDate in", values, "createdate");
             return (Criteria) this;
         }
 
-        public Criteria andCreatedateNotIn(List<Timestamp> values) {
+        public Criteria andCreatedateNotIn(List<Date> values) {
             addCriterion("createDate not in", values, "createdate");
             return (Criteria) this;
         }
 
-        public Criteria andCreatedateBetween(Timestamp value1, Timestamp value2) {
+        public Criteria andCreatedateBetween(Date value1, Date value2) {
             addCriterion("createDate between", value1, value2, "createdate");
             return (Criteria) this;
         }
 
-        public Criteria andCreatedateNotBetween(Timestamp value1, Timestamp value2) {
+        public Criteria andCreatedateNotBetween(Date value1, Date value2) {
             addCriterion("createDate not between", value1, value2, "createdate");
             return (Criteria) this;
         }
@@ -475,52 +475,52 @@ public class OrdersExample {
             return (Criteria) this;
         }
 
-        public Criteria andPaydateEqualTo(Timestamp value) {
+        public Criteria andPaydateEqualTo(Date value) {
             addCriterion("payDate =", value, "paydate");
             return (Criteria) this;
         }
 
-        public Criteria andPaydateNotEqualTo(Timestamp value) {
+        public Criteria andPaydateNotEqualTo(Date value) {
             addCriterion("payDate <>", value, "paydate");
             return (Criteria) this;
         }
 
-        public Criteria andPaydateGreaterThan(Timestamp value) {
+        public Criteria andPaydateGreaterThan(Date value) {
             addCriterion("payDate >", value, "paydate");
             return (Criteria) this;
         }
 
-        public Criteria andPaydateGreaterThanOrEqualTo(Timestamp value) {
+        public Criteria andPaydateGreaterThanOrEqualTo(Date value) {
             addCriterion("payDate >=", value, "paydate");
             return (Criteria) this;
         }
 
-        public Criteria andPaydateLessThan(Timestamp value) {
+        public Criteria andPaydateLessThan(Date value) {
             addCriterion("payDate <", value, "paydate");
             return (Criteria) this;
         }
 
-        public Criteria andPaydateLessThanOrEqualTo(Timestamp value) {
+        public Criteria andPaydateLessThanOrEqualTo(Date value) {
             addCriterion("payDate <=", value, "paydate");
             return (Criteria) this;
         }
 
-        public Criteria andPaydateIn(List<Timestamp> values) {
+        public Criteria andPaydateIn(List<Date> values) {
             addCriterion("payDate in", values, "paydate");
             return (Criteria) this;
         }
 
-        public Criteria andPaydateNotIn(List<Timestamp> values) {
+        public Criteria andPaydateNotIn(List<Date> values) {
             addCriterion("payDate not in", values, "paydate");
             return (Criteria) this;
         }
 
-        public Criteria andPaydateBetween(Timestamp value1, Timestamp value2) {
+        public Criteria andPaydateBetween(Date value1, Date value2) {
             addCriterion("payDate between", value1, value2, "paydate");
             return (Criteria) this;
         }
 
-        public Criteria andPaydateNotBetween(Timestamp value1, Timestamp value2) {
+        public Criteria andPaydateNotBetween(Date value1, Date value2) {
             addCriterion("payDate not between", value1, value2, "paydate");
             return (Criteria) this;
         }
@@ -605,52 +605,52 @@ public class OrdersExample {
             return (Criteria) this;
         }
 
-        public Criteria andCenceldateEqualTo(Timestamp value) {
+        public Criteria andCenceldateEqualTo(Date value) {
             addCriterion("cencelDate =", value, "cenceldate");
             return (Criteria) this;
         }
 
-        public Criteria andCenceldateNotEqualTo(Timestamp value) {
+        public Criteria andCenceldateNotEqualTo(Date value) {
             addCriterion("cencelDate <>", value, "cenceldate");
             return (Criteria) this;
         }
 
-        public Criteria andCenceldateGreaterThan(Timestamp value) {
+        public Criteria andCenceldateGreaterThan(Date value) {
             addCriterion("cencelDate >", value, "cenceldate");
             return (Criteria) this;
         }
 
-        public Criteria andCenceldateGreaterThanOrEqualTo(Timestamp value) {
+        public Criteria andCenceldateGreaterThanOrEqualTo(Date value) {
             addCriterion("cencelDate >=", value, "cenceldate");
             return (Criteria) this;
         }
 
-        public Criteria andCenceldateLessThan(Timestamp value) {
+        public Criteria andCenceldateLessThan(Date value) {
             addCriterion("cencelDate <", value, "cenceldate");
             return (Criteria) this;
         }
 
-        public Criteria andCenceldateLessThanOrEqualTo(Timestamp value) {
+        public Criteria andCenceldateLessThanOrEqualTo(Date value) {
             addCriterion("cencelDate <=", value, "cenceldate");
             return (Criteria) this;
         }
 
-        public Criteria andCenceldateIn(List<Timestamp> values) {
+        public Criteria andCenceldateIn(List<Date> values) {
             addCriterion("cencelDate in", values, "cenceldate");
             return (Criteria) this;
         }
 
-        public Criteria andCenceldateNotIn(List<Timestamp> values) {
+        public Criteria andCenceldateNotIn(List<Date> values) {
             addCriterion("cencelDate not in", values, "cenceldate");
             return (Criteria) this;
         }
 
-        public Criteria andCenceldateBetween(Timestamp value1, Timestamp value2) {
+        public Criteria andCenceldateBetween(Date value1, Date value2) {
             addCriterion("cencelDate between", value1, value2, "cenceldate");
             return (Criteria) this;
         }
 
-        public Criteria andCenceldateNotBetween(Timestamp value1, Timestamp value2) {
+        public Criteria andCenceldateNotBetween(Date value1, Date value2) {
             addCriterion("cencelDate not between", value1, value2, "cenceldate");
             return (Criteria) this;
         }
@@ -665,52 +665,52 @@ public class OrdersExample {
             return (Criteria) this;
         }
 
-        public Criteria andSenddateEqualTo(Timestamp value) {
+        public Criteria andSenddateEqualTo(Date value) {
             addCriterion("sendDate =", value, "senddate");
             return (Criteria) this;
         }
 
-        public Criteria andSenddateNotEqualTo(Timestamp value) {
+        public Criteria andSenddateNotEqualTo(Date value) {
             addCriterion("sendDate <>", value, "senddate");
             return (Criteria) this;
         }
 
-        public Criteria andSenddateGreaterThan(Timestamp value) {
+        public Criteria andSenddateGreaterThan(Date value) {
             addCriterion("sendDate >", value, "senddate");
             return (Criteria) this;
         }
 
-        public Criteria andSenddateGreaterThanOrEqualTo(Timestamp value) {
+        public Criteria andSenddateGreaterThanOrEqualTo(Date value) {
             addCriterion("sendDate >=", value, "senddate");
             return (Criteria) this;
         }
 
-        public Criteria andSenddateLessThan(Timestamp value) {
+        public Criteria andSenddateLessThan(Date value) {
             addCriterion("sendDate <", value, "senddate");
             return (Criteria) this;
         }
 
-        public Criteria andSenddateLessThanOrEqualTo(Timestamp value) {
+        public Criteria andSenddateLessThanOrEqualTo(Date value) {
             addCriterion("sendDate <=", value, "senddate");
             return (Criteria) this;
         }
 
-        public Criteria andSenddateIn(List<Timestamp> values) {
+        public Criteria andSenddateIn(List<Date> values) {
             addCriterion("sendDate in", values, "senddate");
             return (Criteria) this;
         }
 
-        public Criteria andSenddateNotIn(List<Timestamp> values) {
+        public Criteria andSenddateNotIn(List<Date> values) {
             addCriterion("sendDate not in", values, "senddate");
             return (Criteria) this;
         }
 
-        public Criteria andSenddateBetween(Timestamp value1, Timestamp value2) {
+        public Criteria andSenddateBetween(Date value1, Date value2) {
             addCriterion("sendDate between", value1, value2, "senddate");
             return (Criteria) this;
         }
 
-        public Criteria andSenddateNotBetween(Timestamp value1, Timestamp value2) {
+        public Criteria andSenddateNotBetween(Date value1, Date value2) {
             addCriterion("sendDate not between", value1, value2, "senddate");
             return (Criteria) this;
         }
@@ -725,53 +725,52 @@ public class OrdersExample {
             return (Criteria) this;
         }
 
-        public Criteria andConfirmdateEqualTo(Timestamp value) {
+        public Criteria andConfirmdateEqualTo(Date value) {
             addCriterion("confirmDate =", value, "confirmdate");
             return (Criteria) this;
         }
 
-        public Criteria andConfirmdateNotEqualTo(Timestamp value) {
+        public Criteria andConfirmdateNotEqualTo(Date value) {
             addCriterion("confirmDate <>", value, "confirmdate");
             return (Criteria) this;
         }
 
-        public Criteria andConfirmdateGreaterThan(Timestamp value) {
+        public Criteria andConfirmdateGreaterThan(Date value) {
             addCriterion("confirmDate >", value, "confirmdate");
             return (Criteria) this;
         }
 
-        public Criteria andConfirmdateGreaterThanOrEqualTo(Timestamp value) {
+        public Criteria andConfirmdateGreaterThanOrEqualTo(Date value) {
             addCriterion("confirmDate >=", value, "confirmdate");
             return (Criteria) this;
         }
 
-        public Criteria andConfirmdateLessThan(Timestamp value) {
+        public Criteria andConfirmdateLessThan(Date value) {
             addCriterion("confirmDate <", value, "confirmdate");
             return (Criteria) this;
         }
 
-        public Criteria andConfirmdateLessThanOrEqualTo(Timestamp value) {
+        public Criteria andConfirmdateLessThanOrEqualTo(Date value) {
             addCriterion("confirmDate <=", value, "confirmdate");
             return (Criteria) this;
         }
 
-        public Criteria andConfirmdateIn(List<Timestamp> values) {
+        public Criteria andConfirmdateIn(List<Date> values) {
             addCriterion("confirmDate in", values, "confirmdate");
             return (Criteria) this;
         }
 
-        public Criteria andConfirmdateNotIn(List<Timestamp> values) {
+        public Criteria andConfirmdateNotIn(List<Date> values) {
             addCriterion("confirmDate not in", values, "confirmdate");
             return (Criteria) this;
         }
 
-        public Criteria andConfirmdateBetween(Timestamp value1, Timestamp value2) {
+        public Criteria andConfirmdateBetween(Date value1, Date value2) {
             addCriterion("confirmDate between", value1, value2, "confirmdate");
             return (Criteria) this;
         }
 
-        public Criteria andConfirmdateNotBetween(Timestamp value1, Timestamp value2) {
-
+        public Criteria andConfirmdateNotBetween(Date value1, Date value2) {
             addCriterion("confirmDate not between", value1, value2, "confirmdate");
             return (Criteria) this;
         }
@@ -893,6 +892,76 @@ public class OrdersExample {
 
         public Criteria andStatusNotBetween(Integer value1, Integer value2) {
             addCriterion("status not between", value1, value2, "status");
+            return (Criteria) this;
+        }
+
+        public Criteria andSendmentIsNull() {
+            addCriterion("sendment is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andSendmentIsNotNull() {
+            addCriterion("sendment is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andSendmentEqualTo(String value) {
+            addCriterion("sendment =", value, "sendment");
+            return (Criteria) this;
+        }
+
+        public Criteria andSendmentNotEqualTo(String value) {
+            addCriterion("sendment <>", value, "sendment");
+            return (Criteria) this;
+        }
+
+        public Criteria andSendmentGreaterThan(String value) {
+            addCriterion("sendment >", value, "sendment");
+            return (Criteria) this;
+        }
+
+        public Criteria andSendmentGreaterThanOrEqualTo(String value) {
+            addCriterion("sendment >=", value, "sendment");
+            return (Criteria) this;
+        }
+
+        public Criteria andSendmentLessThan(String value) {
+            addCriterion("sendment <", value, "sendment");
+            return (Criteria) this;
+        }
+
+        public Criteria andSendmentLessThanOrEqualTo(String value) {
+            addCriterion("sendment <=", value, "sendment");
+            return (Criteria) this;
+        }
+
+        public Criteria andSendmentLike(String value) {
+            addCriterion("sendment like", value, "sendment");
+            return (Criteria) this;
+        }
+
+        public Criteria andSendmentNotLike(String value) {
+            addCriterion("sendment not like", value, "sendment");
+            return (Criteria) this;
+        }
+
+        public Criteria andSendmentIn(List<String> values) {
+            addCriterion("sendment in", values, "sendment");
+            return (Criteria) this;
+        }
+
+        public Criteria andSendmentNotIn(List<String> values) {
+            addCriterion("sendment not in", values, "sendment");
+            return (Criteria) this;
+        }
+
+        public Criteria andSendmentBetween(String value1, String value2) {
+            addCriterion("sendment between", value1, value2, "sendment");
+            return (Criteria) this;
+        }
+
+        public Criteria andSendmentNotBetween(String value1, String value2) {
+            addCriterion("sendment not between", value1, value2, "sendment");
             return (Criteria) this;
         }
     }
