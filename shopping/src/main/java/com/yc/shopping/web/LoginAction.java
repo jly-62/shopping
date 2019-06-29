@@ -1,12 +1,7 @@
 package com.yc.shopping.web;
 
-import java.util.List;
-import java.util.Map;
-
 import javax.annotation.Resource;
-
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.stereotype.Controller;
@@ -15,17 +10,12 @@ import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
-import org.springframework.web.servlet.ModelAndView;
 
 import com.yc.shopping.bean.User;
 import com.yc.shopping.biz.BizException;
 import com.yc.shopping.biz.UserBiz;
 import com.yc.shopping.dao.UserMapper;
-
-import com.yc.shopping.vo.Result;
 
 @Controller
 @SessionAttributes("loginedUser")
@@ -36,12 +26,6 @@ public class LoginAction {
 	private UserBiz ubiz;
 	
 
-	@GetMapping("index")
-	public String index(){
-		return "index";
-	
-	}
-	
 	
 	@GetMapping("/login")
 	public String login(@ModelAttribute("User") User u) {
@@ -56,7 +40,6 @@ public class LoginAction {
 		if(errors.hasFieldErrors("username") || errors.hasFieldErrors("upwd")) {
 			return "login";
 		}try {
-			
 			
 			User dbu = ubiz.login(u);
 			model.addAttribute("loginedUser",dbu);

@@ -193,4 +193,19 @@
       count = #{count,jdbcType=INTEGER}
     where cartId = #{cartid,jdbcType=INTEGER}
   </update>
+  
+  
+  
+  
+  <resultMap type="com.yc.shopping.bean.Cart2" id="cart2" autoMapping="true">
+  	<id column="cartid" property="cartid"/>
+  	<association property="product" javaType="com.yc.shopping.bean.Product" autoMapping="true">
+		<id column="pid" property="pid"/>
+	</association>
+  </resultMap>
+  <select id="selectAllCartByuid" resultMap="cart2">
+		select * from (select * from cart where uid=#{uid}) a left join product b
+		on a.pid=b.pid
+	</select>
+	
 </mapper>

@@ -82,4 +82,10 @@ public class User {
     public void setBirthday(Date birthday) {
         this.birthday = birthday;
     }
+
+	@Override
+	public String toString() {
+		return "User [uid=" + uid + ", username=" + username + ", upwd=" + upwd + ", email=" + email + ", tel=" + tel
+				+ ", gender=" + gender + ", header=" + header + ", birthday=" + birthday + "]";
+	}
 }

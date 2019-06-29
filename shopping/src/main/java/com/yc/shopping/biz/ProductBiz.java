@@ -1,4 +1,4 @@
-package com.yc.shopping.web;
+package com.yc.shopping.biz;
 
 import java.util.List;
 import javax.annotation.Resource;

@@ -22,14 +22,15 @@ public class SessionInterceptor implements HandlerInterceptor {
 	
 	@Override
 	public boolean preHandle(HttpServletRequest arg0, HttpServletResponse arg1, Object arg2) throws Exception {
+		System.out.println("uri="+arg0.getRequestURI());
 		// 首页路径以及登录放行
-		if ("/index".equals(arg0.getRequestURI()) || "/loging".equals(arg0.getRequestURI()) || "/reg".equals(arg0.getRequestURI())) {
+		if ("/".equals(arg0.getRequestURI()) ||"/index".equals(arg0.getRequestURI()) || "/login".equals(arg0.getRequestURI()) || "/reg".equals(arg0.getRequestURI())) {
 			return true;
 		}
 		// 重定向
-		Object object = arg0.getSession().getAttribute("user");
+		Object object = arg0.getSession().getAttribute("loginedUser");
 		if (null == object) {
-			arg1.sendRedirect("/loging");
+			arg1.sendRedirect("/login");
 			return false;
 		}
 		return true;

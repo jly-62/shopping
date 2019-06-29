@@ -1,6 +1,7 @@
 package com.yc.shopping.dao;
 
 import com.yc.shopping.bean.Cart;
+import com.yc.shopping.bean.Cart2;
 import com.yc.shopping.bean.CartExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
@@ -27,4 +28,6 @@ public interface CartMapper {
     int updateByPrimaryKeySelective(Cart record);
 
     int updateByPrimaryKey(Cart record);
+
+	List<Cart2> selectAllCartByuid(Integer uid);
 }

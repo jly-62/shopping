@@ -5,8 +5,13 @@
 <!--[if lt IE 9]>
 <script src="js/html5.js"></script>
 <![endif]-->
-<script src="js/jquery.js"></script>
-<script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script src="/js/jquery.js"></script>
+<script src="/js/jquery.mCustomScrollbar.concat.min.js"></script>
+<link rel="stylesheet" type="text/css" href="/js/easyui/themes/default/easyui.css">
+<link rel="stylesheet" type="text/css" href="/js/easyui/themes/icon.css">
+<script type="text/javascript" src="/js/jquery-2.1.4.min.js"></script>
+<script type="text/javascript" src="/js/easyui/jquery.easyui.min.js"></script>
+<script type="text/javascript" src="/js/easyui/locale/easyui-lang-zh_CN.js"></script>
 <script>
 
 	(function($){
@@ -60,7 +65,7 @@
   <li>
    <dl>
     <dt>订单信息</dt>
-    <dd><a href="admin/order_list.html">订单列表示例</a></dd>
+    <dd><a href="adminOrders">订单列表示例</a></dd>
     <dd><a href="admin/order_detail.html">订单详情示例</a></dd>
    </dl>
   </li>
