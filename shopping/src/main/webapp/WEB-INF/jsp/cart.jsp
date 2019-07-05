@@ -50,7 +50,7 @@ a{text-decoration:none;}
 					<div class="th">
 						<div class="pro clearfix">
 							<label class="fl">
-								<input type="checkbox" value="123"/>
+								<input type="checkbox" value="${c.id }"/>
 	    						<span></span>
 							</label>
 							<a class="fl" href="#">
