@@ -11,4 +11,6 @@ public class IndexAction {
 	public String index() {
 		return "index";
 	}
+	
+	
 }
