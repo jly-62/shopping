@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+        <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>  
 <!DOCTYPE html>
 <html>
 	<head lang="en">
@@ -82,9 +83,10 @@
 		<div class="bj">
 			<div class="clearfix"><a href="#" class="fr gb"><img src="img/icon4.png"/></a></div>
 			<h3>编辑基础资料</h3>
+			<c:if test="${!empty loginedUser }">
 			<form action="#" method="get">
-				<p><label>姓名：</label><input type="text"  value="${user }" /></p>
-				<p><label>生日：</label><input type="text"  value="${birthday }" /></p>
+				<p><label>姓名：</label><input type="text"  value="${loginedUser.username }" /></p>
+				<p><label>生日：</label><input type="text"  value="${loginedUser.birthday }" /></p>
 				<p>
 					<label>性别：</label>
 					<span><input type="radio"  />男</span>
@@ -95,6 +97,7 @@
 					<input type="button" value="取消" />
 				</div>
 			</form>
+			</c:if>
 		</div>
 		<!--高级设置修改-->
 		<div class="xg">

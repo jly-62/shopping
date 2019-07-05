@@ -3,6 +3,46 @@
     <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
+<script type="text/javascript" src="./js/jquery.min.js"></script>
+<script>
+
+    //获取验证码
+    /*function getVerify(obj){
+        obj.src =  "login/getVerify?"+Math.random();//原生js方式
+    }*/
+    
+    //获取验证码
+    function getVerify() {
+        // $("#imgCode").on("click", function() {
+        $("#imgVerify").attr("src", 'login/getVerify?' + Math.random());//jquery方式
+        // });
+    }
+
+    function aVerify(){
+        var value =$("#verify_input").val();
+        // alert(value);
+        $.ajax({
+            async: false,
+            type: 'post',
+            url: 'login/checkVerify',
+            dataType: "json",
+            data: {
+                verifyInput: value
+            },
+            success: function (result) {
+                if (result) {
+                    alert("success!");
+                } else {
+                    alert("failed!");
+                }
+                // window.location.reload();
+                getVerify();
+            }
+        });
+    }
+</script>
+
+
 	<head>
 		<meta charset="UTF-8">
 		<title>登录</title>
@@ -40,24 +80,17 @@
 				></form:input>
 			<form:errors path="username"></form:errors>
 			
-			
-				<form:input type="text" path="upwd"  placeholder="密码"></form:input>
+			<%-- <td><form:label path="password">Age</form:label></td>
+         <td><form:password path="password" /></td> --%>
+				<form:label path="upwd"  placeholder="密码"   onfocus="this.value = '';"></form:label>
+				<%-- <form:password path="password" /> --%>
 				<form:errors path="upwd"></form:errors>
 				
-				
-				<!-- <div class="form-group">
-									<div class="col-sm-4 control-label">
-										<label id="password-lbl" for="password" class="required">验证码 ：</label>
-									</div>
-									<div class="col-sm-8" style="clear: none;">
-									<input class="form-control" name="smscode" id="register_sms" placeholder="输入验证码" type="text">
-									<span class="input-group-btn">
-									<img src="Check.s" width="124" height="33" id="img">
-									<a onClick="ck()"><h5>看不清？点我刷新验证码</h5></a>
-									</span>
-									</div>
-						</div> -->
-						
+		<input  type="tel" id="verify_input" placeholder="请输入验证码" maxlength="4">
+		<a href="javascript:void(0);" title="点击更换验证码">
+            <img id="imgVerify" src="login/getVerify" alt="更换验证码" height="36" width="170" onclick="getVerify(this);">
+        </a>
+		<input type="button" onclick="aVerify()" value="提交">				
 						
 			<p><input type="submit" name="" value="登  录"></p>
 				<p class="txt"><a class="" href="reg">免费注册</a><a href="forget">忘记密码？</a></p>

@@ -34,6 +34,8 @@ spring:
     username: 1592137611@qq.com
     password: fthuntuwcnlkjdcg
     default-encoding: UTF-8
+    
+
  
 #日志配置   
 logging:

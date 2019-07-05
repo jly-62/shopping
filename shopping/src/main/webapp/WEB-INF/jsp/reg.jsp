@@ -46,10 +46,11 @@
 			
 			<form:input type="text" class="text" path="email" value="" onfocus="this.value = '';" placeholder="邮箱"></form:input>
 			<form:errors path="email"></form:errors>
-			<form:input type="text" class="text" path="tel" value="" onfocus="this.value = '';" placeholder="电话号码"></form:input>
-			<form:errors path="tel"></form:errors>
+			<%-- <form:input type="text" class="text" path="tel" value="" onfocus="this.value = '';" placeholder="电话号码"></form:input>
+			<form:errors path="tel"></form:errors> --%>
 			<p class="txtL txt"><input class="code" type="text" name="" value="" placeholder="验证码"><input type="submit"  value="从邮箱获取验证码"></p>
 				<p><input type="submit" name="" value="注册" onclick="ale()"></p>
+				
 				<p class="txtL txt">完成此注册，即表明您同意了我们的<a href="#"><使用条款和隐私策略></a>
 				<p class="txt"><a href="login"><span></span>已有账号登录</a></p>
 				<a href="index" class="off"><img src="img/temp/off.png"></a>
