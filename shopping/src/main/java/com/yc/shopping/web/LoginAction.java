@@ -29,7 +29,7 @@ import com.yc.shopping.util.RandomValidateCodeUtil;
 @SessionAttributes("loginedUser")
 public class LoginAction {
 	
-private final static Logger logger = LoggerFactory.getLogger(LoginAction.class);
+/*private final static Logger logger = LoggerFactory.getLogger(LoginAction.class);*/
 	
 	@Resource
 	private UserMapper um;
@@ -43,7 +43,9 @@ private final static Logger logger = LoggerFactory.getLogger(LoginAction.class);
 		return "login";
 	}
 	
-	//生成验证码
+	
+	
+	/*//生成验证码
 	 @RequestMapping(value = "/getVerify")
 	    public void getVerify(HttpServletRequest request, HttpServletResponse response) {
 	        try {
@@ -56,7 +58,7 @@ private final static Logger logger = LoggerFactory.getLogger(LoginAction.class);
 	        } catch (Exception e) {
 	            logger.error("获取验证码失败>>>>   ", e);
 	        }
-	    }
+	    }*/
 	 
 	/* 
 	 *
@@ -83,8 +85,8 @@ private final static Logger logger = LoggerFactory.getLogger(LoginAction.class);
 	
 
 	@PostMapping("index")
-	@RequestMapping(value = "/checkVerify", method = RequestMethod.POST,headers = "Accept=application/json")
-	public String tologin(@ModelAttribute("User") @Valid User u,Errors errors,Model model,HttpServletRequest request,@RequestParam String verifyInput, HttpSession session) {
+	/*@RequestMapping(value = "/checkVerify", method = RequestMethod.POST,headers = "Accept=application/json")*/
+	public String tologin(@ModelAttribute("User") @Valid User u,Errors errors,Model model,HttpServletRequest request/*,@RequestParam String verifyInput, HttpSession session*/) {
 		
 		
 		System.out.println(errors);
@@ -95,8 +97,8 @@ private final static Logger logger = LoggerFactory.getLogger(LoginAction.class);
 			User dbu = ubiz.login(u);
 			model.addAttribute("loginedUser",dbu);
      		System.out.println("密码正确");
-			
-			try{
+			return "index";
+			/*try{
 				String inputStr = verifyInput;
 		        String random = (String) session.getAttribute("RANDOMVALIDATECODEKEY");
 				
@@ -113,7 +115,7 @@ private final static Logger logger = LoggerFactory.getLogger(LoginAction.class);
         }catch (Exception e){
             logger.error("验证码校验失败", e);
             return "login";
-        }
+        }*/
 			
 
 			

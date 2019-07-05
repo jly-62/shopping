@@ -23,7 +23,7 @@
 		$.ajax({
 			async : false,
 			type : 'post',
-			url : 'login/checkVerify',
+			url : 'index/checkVerify',
 			dataType : "json",
 			data : {
 				verifyInput : value
@@ -85,16 +85,16 @@
 
 
 			<form:input type="password" path="upwd" placeholder="密码"></form:input>
+            <form:errors path="upwd"></form:errors>
 
-			<form:errors path="upwd"></form:errors>
-
-			<input type="tel" id="verify_input" placeholder="请输入验证码"
+			<!-- <input type="tel" id="verify_input" placeholder="请输入验证码"
 				maxlength="4">
-			<a href="javascript:void(0);" title="点击更换验证码"> <img
-				id="imgVerify" src="login/getVerify" alt="更换验证码" height="36"
+				
+			<a href="javascript:void(0);" title="点击更换验证码"> 
+			<img id="imgVerify" src="login/getVerify" alt="更换验证码" height="36"
 				width="170" onclick="getVerify(this);">
-			</a>
-			<input type="button" onclick="aVerify()" value="提交">
+			</a> -->
+			<!-- <input type="button" onclick="aVerify()" value="提交"> -->
 
 			<p>
 				<input type="submit" name="" value="登  录">
