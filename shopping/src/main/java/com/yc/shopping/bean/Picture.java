@@ -3,7 +3,7 @@ package com.yc.shopping.bean;
 public class Picture {
     private Integer pictureid;
 
-    private Integer pid;
+    private String productid;
 
     private String pictureurl;
 
@@ -19,12 +19,12 @@ public class Picture {
         this.pictureid = pictureid;
     }
 
-    public Integer getPid() {
-        return pid;
+    public String getProductid() {
+        return productid;
     }
 
-    public void setPid(Integer pid) {
-        this.pid = pid;
+    public void setProductid(String productid) {
+        this.productid = productid == null ? null : productid.trim();
     }
 
     public String getPictureurl() {

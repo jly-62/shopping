@@ -27,7 +27,7 @@ import com.yc.shopping.bean.User;
 import com.yc.shopping.biz.BizException;
 import com.yc.shopping.biz.UserBiz;
 import com.yc.shopping.dao.UserMapper;
-import com.yc.shopping.util.EmailCode;
+import com.yc.shopping.utils.EmailCode;
 
 
 @Controller

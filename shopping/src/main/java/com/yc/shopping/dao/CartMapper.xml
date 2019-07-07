@@ -6,6 +6,7 @@
     <result column="pid" jdbcType="INTEGER" property="pid" />
     <result column="uid" jdbcType="INTEGER" property="uid" />
     <result column="count" jdbcType="INTEGER" property="count" />
+    <result column="isCheck" jdbcType="INTEGER" property="ischeck" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -66,7 +67,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    cartId, pid, uid, count
+    cartId, pid, uid, count, isCheck
   </sql>
   <select id="selectByExample" parameterType="com.yc.shopping.bean.CartExample" resultMap="BaseResultMap">
     select
@@ -100,9 +101,9 @@
   </delete>
   <insert id="insert" parameterType="com.yc.shopping.bean.Cart">
     insert into cart (cartId, pid, uid, 
-      count)
+      count, isCheck)
     values (#{cartid,jdbcType=INTEGER}, #{pid,jdbcType=INTEGER}, #{uid,jdbcType=INTEGER}, 
-      #{count,jdbcType=INTEGER})
+      #{count,jdbcType=INTEGER}, #{ischeck,jdbcType=INTEGER})
   </insert>
   <insert id="insertSelective" parameterType="com.yc.shopping.bean.Cart">
     insert into cart
@@ -119,6 +120,9 @@
       <if test="count != null">
         count,
       </if>
+      <if test="ischeck != null">
+        isCheck,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="cartid != null">
@@ -132,6 +136,9 @@
       </if>
       <if test="count != null">
         #{count,jdbcType=INTEGER},
+      </if>
+      <if test="ischeck != null">
+        #{ischeck,jdbcType=INTEGER},
       </if>
     </trim>
   </insert>
@@ -156,6 +163,9 @@
       <if test="record.count != null">
         count = #{record.count,jdbcType=INTEGER},
       </if>
+      <if test="record.ischeck != null">
+        isCheck = #{record.ischeck,jdbcType=INTEGER},
+      </if>
     </set>
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
@@ -166,7 +176,8 @@
     set cartId = #{record.cartid,jdbcType=INTEGER},
       pid = #{record.pid,jdbcType=INTEGER},
       uid = #{record.uid,jdbcType=INTEGER},
-      count = #{record.count,jdbcType=INTEGER}
+      count = #{record.count,jdbcType=INTEGER},
+      isCheck = #{record.ischeck,jdbcType=INTEGER}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -183,6 +194,9 @@
       <if test="count != null">
         count = #{count,jdbcType=INTEGER},
       </if>
+      <if test="ischeck != null">
+        isCheck = #{ischeck,jdbcType=INTEGER},
+      </if>
     </set>
     where cartId = #{cartid,jdbcType=INTEGER}
   </update>
@@ -190,13 +204,13 @@
     update cart
     set pid = #{pid,jdbcType=INTEGER},
       uid = #{uid,jdbcType=INTEGER},
-      count = #{count,jdbcType=INTEGER}
+      count = #{count,jdbcType=INTEGER},
+      isCheck = #{ischeck,jdbcType=INTEGER}
     where cartId = #{cartid,jdbcType=INTEGER}
   </update>
   
   
-  
-  
+  <!-- 添加的代码 -->
   <resultMap type="com.yc.shopping.bean.Cart2" id="cart2" autoMapping="true">
   	<id column="cartid" property="cartid"/>
   	<association property="product" javaType="com.yc.shopping.bean.Product" autoMapping="true">
@@ -207,5 +221,23 @@
 		select * from (select * from cart where uid=#{uid}) a left join product b
 		on a.pid=b.pid
 	</select>
-	
+  
+   <update id="updateCartCheck" parameterType="com.yc.shopping.bean.Cart">
+    update cart
+    set pid = #{pid,jdbcType=INTEGER},
+      uid = #{uid,jdbcType=INTEGER},
+      count = #{count,jdbcType=INTEGER},
+      isCheck = #{ischeck,jdbcType=INTEGER}
+    where cartId = #{cartid,jdbcType=INTEGER}
+  </update>
+  
+  <update id="updateAllCheck" parameterType="com.yc.shopping.bean.Cart">
+    update cart set isCheck = 1 where isCheck=0
+  </update>
+ 
+  <select id="selectcheck" resultMap="cart2">
+		select * from (select * from cart where ischeck=0) a left join product b
+		on a.pid=b.pid
+	</select>
+  
 </mapper>

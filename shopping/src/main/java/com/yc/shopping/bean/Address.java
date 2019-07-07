@@ -17,9 +17,9 @@ public class Address {
 
     private String tel;
 
-    private String isdedault;
-
     private String addressee;
+
+    private String isdefault;
 
     public Integer getAddressid() {
         return addressid;
@@ -85,19 +85,19 @@ public class Address {
         this.tel = tel == null ? null : tel.trim();
     }
 
-    public String getIsdedault() {
-        return isdedault;
-    }
-
-    public void setIsdedault(String isdedault) {
-        this.isdedault = isdedault == null ? null : isdedault.trim();
-    }
-
     public String getAddressee() {
         return addressee;
     }
 
     public void setAddressee(String addressee) {
         this.addressee = addressee == null ? null : addressee.trim();
+    }
+
+    public String getIsdefault() {
+        return isdefault;
+    }
+
+    public void setIsdefault(String isdefault) {
+        this.isdefault = isdefault == null ? null : isdefault.trim();
     }
 }

@@ -193,4 +193,22 @@
       parentId = #{parentid,jdbcType=INTEGER}
     where categoryId = #{categoryid,jdbcType=INTEGER}
   </update>
+  
+  
+  <!-- 手动添加 -->
+  <resultMap type="com.yc.shopping.bean.Category2" id="category1" autoMapping="true">
+		<id column="categoryId" property="categoryid"/>
+		<collection property="catepList" ofType="com.yc.shopping.bean.Category2" autoMapping="true">
+			<id  property="categoryid" column="catepList.categoryId"/>
+			<id  property="cname" column="catepList.cname"/>
+			<id  property="sort" column="catepList.sort"/>
+			<id  property="parentid" column="catepList.perentId"/>
+		</collection>	
+    </resultMap>
+    
+	<select id="selectCategory" resultMap="category1">
+		SELECT a.*,b.categoryId "catepList.categoryId",b.cname `catepList.cname`,b.sort "catepList.sort",b.parentId "catepList.perentId"
+		FROM category a LEFT JOIN category b ON a.categoryId=b.parentId
+		WHERE a.parentId=0
+	</select>
 </mapper>

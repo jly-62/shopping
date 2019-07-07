@@ -3,7 +3,7 @@
 <mapper namespace="com.yc.shopping.dao.PictureMapper">
   <resultMap id="BaseResultMap" type="com.yc.shopping.bean.Picture">
     <id column="pictureId" jdbcType="INTEGER" property="pictureid" />
-    <result column="pid" jdbcType="INTEGER" property="pid" />
+    <result column="productId" jdbcType="VARCHAR" property="productid" />
     <result column="pictureUrl" jdbcType="VARCHAR" property="pictureurl" />
     <result column="thumbUrl" jdbcType="VARCHAR" property="thumburl" />
     <result column="img_desc" jdbcType="VARCHAR" property="imgDesc" />
@@ -67,7 +67,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    pictureId, pid, pictureUrl, thumbUrl, img_desc
+    pictureId, productId, pictureUrl, thumbUrl, img_desc
   </sql>
   <select id="selectByExample" parameterType="com.yc.shopping.bean.PictureExample" resultMap="BaseResultMap">
     select
@@ -100,9 +100,9 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.yc.shopping.bean.Picture">
-    insert into picture (pictureId, pid, pictureUrl, 
+    insert into picture (pictureId, productId, pictureUrl, 
       thumbUrl, img_desc)
-    values (#{pictureid,jdbcType=INTEGER}, #{pid,jdbcType=INTEGER}, #{pictureurl,jdbcType=VARCHAR}, 
+    values (#{pictureid,jdbcType=INTEGER}, #{productid,jdbcType=VARCHAR}, #{pictureurl,jdbcType=VARCHAR}, 
       #{thumburl,jdbcType=VARCHAR}, #{imgDesc,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.yc.shopping.bean.Picture">
@@ -111,8 +111,8 @@
       <if test="pictureid != null">
         pictureId,
       </if>
-      <if test="pid != null">
-        pid,
+      <if test="productid != null">
+        productId,
       </if>
       <if test="pictureurl != null">
         pictureUrl,
@@ -128,8 +128,8 @@
       <if test="pictureid != null">
         #{pictureid,jdbcType=INTEGER},
       </if>
-      <if test="pid != null">
-        #{pid,jdbcType=INTEGER},
+      <if test="productid != null">
+        #{productid,jdbcType=VARCHAR},
       </if>
       <if test="pictureurl != null">
         #{pictureurl,jdbcType=VARCHAR},
@@ -154,8 +154,8 @@
       <if test="record.pictureid != null">
         pictureId = #{record.pictureid,jdbcType=INTEGER},
       </if>
-      <if test="record.pid != null">
-        pid = #{record.pid,jdbcType=INTEGER},
+      <if test="record.productid != null">
+        productId = #{record.productid,jdbcType=VARCHAR},
       </if>
       <if test="record.pictureurl != null">
         pictureUrl = #{record.pictureurl,jdbcType=VARCHAR},
@@ -174,7 +174,7 @@
   <update id="updateByExample" parameterType="map">
     update picture
     set pictureId = #{record.pictureid,jdbcType=INTEGER},
-      pid = #{record.pid,jdbcType=INTEGER},
+      productId = #{record.productid,jdbcType=VARCHAR},
       pictureUrl = #{record.pictureurl,jdbcType=VARCHAR},
       thumbUrl = #{record.thumburl,jdbcType=VARCHAR},
       img_desc = #{record.imgDesc,jdbcType=VARCHAR}
@@ -185,8 +185,8 @@
   <update id="updateByPrimaryKeySelective" parameterType="com.yc.shopping.bean.Picture">
     update picture
     <set>
-      <if test="pid != null">
-        pid = #{pid,jdbcType=INTEGER},
+      <if test="productid != null">
+        productId = #{productid,jdbcType=VARCHAR},
       </if>
       <if test="pictureurl != null">
         pictureUrl = #{pictureurl,jdbcType=VARCHAR},
@@ -202,7 +202,7 @@
   </update>
   <update id="updateByPrimaryKey" parameterType="com.yc.shopping.bean.Picture">
     update picture
-    set pid = #{pid,jdbcType=INTEGER},
+    set productId = #{productid,jdbcType=VARCHAR},
       pictureUrl = #{pictureurl,jdbcType=VARCHAR},
       thumbUrl = #{thumburl,jdbcType=VARCHAR},
       img_desc = #{imgDesc,jdbcType=VARCHAR}

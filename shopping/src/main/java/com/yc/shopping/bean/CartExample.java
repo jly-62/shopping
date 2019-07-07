@@ -343,6 +343,66 @@ public class CartExample {
             addCriterion("count not between", value1, value2, "count");
             return (Criteria) this;
         }
+
+        public Criteria andIscheckIsNull() {
+            addCriterion("isCheck is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andIscheckIsNotNull() {
+            addCriterion("isCheck is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andIscheckEqualTo(Integer value) {
+            addCriterion("isCheck =", value, "ischeck");
+            return (Criteria) this;
+        }
+
+        public Criteria andIscheckNotEqualTo(Integer value) {
+            addCriterion("isCheck <>", value, "ischeck");
+            return (Criteria) this;
+        }
+
+        public Criteria andIscheckGreaterThan(Integer value) {
+            addCriterion("isCheck >", value, "ischeck");
+            return (Criteria) this;
+        }
+
+        public Criteria andIscheckGreaterThanOrEqualTo(Integer value) {
+            addCriterion("isCheck >=", value, "ischeck");
+            return (Criteria) this;
+        }
+
+        public Criteria andIscheckLessThan(Integer value) {
+            addCriterion("isCheck <", value, "ischeck");
+            return (Criteria) this;
+        }
+
+        public Criteria andIscheckLessThanOrEqualTo(Integer value) {
+            addCriterion("isCheck <=", value, "ischeck");
+            return (Criteria) this;
+        }
+
+        public Criteria andIscheckIn(List<Integer> values) {
+            addCriterion("isCheck in", values, "ischeck");
+            return (Criteria) this;
+        }
+
+        public Criteria andIscheckNotIn(List<Integer> values) {
+            addCriterion("isCheck not in", values, "ischeck");
+            return (Criteria) this;
+        }
+
+        public Criteria andIscheckBetween(Integer value1, Integer value2) {
+            addCriterion("isCheck between", value1, value2, "ischeck");
+            return (Criteria) this;
+        }
+
+        public Criteria andIscheckNotBetween(Integer value1, Integer value2) {
+            addCriterion("isCheck not between", value1, value2, "ischeck");
+            return (Criteria) this;
+        }
     }
 
     public static class Criteria extends GeneratedCriteria {

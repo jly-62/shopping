@@ -164,63 +164,73 @@ public class PictureExample {
             return (Criteria) this;
         }
 
-        public Criteria andPidIsNull() {
-            addCriterion("pid is null");
+        public Criteria andProductidIsNull() {
+            addCriterion("productId is null");
             return (Criteria) this;
         }
 
-        public Criteria andPidIsNotNull() {
-            addCriterion("pid is not null");
+        public Criteria andProductidIsNotNull() {
+            addCriterion("productId is not null");
             return (Criteria) this;
         }
 
-        public Criteria andPidEqualTo(Integer value) {
-            addCriterion("pid =", value, "pid");
+        public Criteria andProductidEqualTo(String value) {
+            addCriterion("productId =", value, "productid");
             return (Criteria) this;
         }
 
-        public Criteria andPidNotEqualTo(Integer value) {
-            addCriterion("pid <>", value, "pid");
+        public Criteria andProductidNotEqualTo(String value) {
+            addCriterion("productId <>", value, "productid");
             return (Criteria) this;
         }
 
-        public Criteria andPidGreaterThan(Integer value) {
-            addCriterion("pid >", value, "pid");
+        public Criteria andProductidGreaterThan(String value) {
+            addCriterion("productId >", value, "productid");
             return (Criteria) this;
         }
 
-        public Criteria andPidGreaterThanOrEqualTo(Integer value) {
-            addCriterion("pid >=", value, "pid");
+        public Criteria andProductidGreaterThanOrEqualTo(String value) {
+            addCriterion("productId >=", value, "productid");
             return (Criteria) this;
         }
 
-        public Criteria andPidLessThan(Integer value) {
-            addCriterion("pid <", value, "pid");
+        public Criteria andProductidLessThan(String value) {
+            addCriterion("productId <", value, "productid");
             return (Criteria) this;
         }
 
-        public Criteria andPidLessThanOrEqualTo(Integer value) {
-            addCriterion("pid <=", value, "pid");
+        public Criteria andProductidLessThanOrEqualTo(String value) {
+            addCriterion("productId <=", value, "productid");
             return (Criteria) this;
         }
 
-        public Criteria andPidIn(List<Integer> values) {
-            addCriterion("pid in", values, "pid");
+        public Criteria andProductidLike(String value) {
+            addCriterion("productId like", value, "productid");
             return (Criteria) this;
         }
 
-        public Criteria andPidNotIn(List<Integer> values) {
-            addCriterion("pid not in", values, "pid");
+        public Criteria andProductidNotLike(String value) {
+            addCriterion("productId not like", value, "productid");
             return (Criteria) this;
         }
 
-        public Criteria andPidBetween(Integer value1, Integer value2) {
-            addCriterion("pid between", value1, value2, "pid");
+        public Criteria andProductidIn(List<String> values) {
+            addCriterion("productId in", values, "productid");
             return (Criteria) this;
         }
 
-        public Criteria andPidNotBetween(Integer value1, Integer value2) {
-            addCriterion("pid not between", value1, value2, "pid");
+        public Criteria andProductidNotIn(List<String> values) {
+            addCriterion("productId not in", values, "productid");
+            return (Criteria) this;
+        }
+
+        public Criteria andProductidBetween(String value1, String value2) {
+            addCriterion("productId between", value1, value2, "productid");
+            return (Criteria) this;
+        }
+
+        public Criteria andProductidNotBetween(String value1, String value2) {
+            addCriterion("productId not between", value1, value2, "productid");
             return (Criteria) this;
         }
 

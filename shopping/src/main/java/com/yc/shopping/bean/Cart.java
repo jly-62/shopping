@@ -9,6 +9,8 @@ public class Cart {
 
     private Integer count;
 
+    private Integer ischeck;
+
     public Integer getCartid() {
         return cartid;
     }
@@ -39,5 +41,13 @@ public class Cart {
 
     public void setCount(Integer count) {
         this.count = count;
+    }
+
+    public Integer getIscheck() {
+        return ischeck;
+    }
+
+    public void setIscheck(Integer ischeck) {
+        this.ischeck = ischeck;
     }
 }

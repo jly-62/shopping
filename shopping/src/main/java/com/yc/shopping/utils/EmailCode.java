@@ -1,4 +1,4 @@
-package com.yc.shopping.util;
+package com.yc.shopping.utils;
 
 public class EmailCode {
 

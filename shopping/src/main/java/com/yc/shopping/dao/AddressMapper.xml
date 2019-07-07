@@ -10,8 +10,8 @@
     <result column="district" jdbcType="SMALLINT" property="district" />
     <result column="street" jdbcType="VARCHAR" property="street" />
     <result column="tel" jdbcType="VARCHAR" property="tel" />
-    <result column="isDedault" jdbcType="VARCHAR" property="isdedault" />
     <result column="addressee" jdbcType="VARCHAR" property="addressee" />
+    <result column="isDefault" jdbcType="VARCHAR" property="isdefault" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -72,7 +72,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    addressId, uid, address, province, city, district, street, tel, isDedault, addressee
+    addressId, uid, address, province, city, district, street, tel, addressee, isDefault
   </sql>
   <select id="selectByExample" parameterType="com.yc.shopping.bean.AddressExample" resultMap="BaseResultMap">
     select
@@ -107,12 +107,12 @@
   <insert id="insert" parameterType="com.yc.shopping.bean.Address">
     insert into address (addressId, uid, address, 
       province, city, district, 
-      street, tel, isDedault, 
-      addressee)
+      street, tel, addressee, 
+      isDefault)
     values (#{addressid,jdbcType=INTEGER}, #{uid,jdbcType=INTEGER}, #{address,jdbcType=VARCHAR}, 
       #{province,jdbcType=SMALLINT}, #{city,jdbcType=SMALLINT}, #{district,jdbcType=SMALLINT}, 
-      #{street,jdbcType=VARCHAR}, #{tel,jdbcType=VARCHAR}, #{isdedault,jdbcType=VARCHAR}, 
-      #{addressee,jdbcType=VARCHAR})
+      #{street,jdbcType=VARCHAR}, #{tel,jdbcType=VARCHAR}, #{addressee,jdbcType=VARCHAR}, 
+      #{isdefault,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.yc.shopping.bean.Address">
     insert into address
@@ -141,11 +141,11 @@
       <if test="tel != null">
         tel,
       </if>
-      <if test="isdedault != null">
-        isDedault,
-      </if>
       <if test="addressee != null">
         addressee,
+      </if>
+      <if test="isdefault != null">
+        isDefault,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
@@ -173,11 +173,11 @@
       <if test="tel != null">
         #{tel,jdbcType=VARCHAR},
       </if>
-      <if test="isdedault != null">
-        #{isdedault,jdbcType=VARCHAR},
-      </if>
       <if test="addressee != null">
         #{addressee,jdbcType=VARCHAR},
+      </if>
+      <if test="isdefault != null">
+        #{isdefault,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -214,11 +214,11 @@
       <if test="record.tel != null">
         tel = #{record.tel,jdbcType=VARCHAR},
       </if>
-      <if test="record.isdedault != null">
-        isDedault = #{record.isdedault,jdbcType=VARCHAR},
-      </if>
       <if test="record.addressee != null">
         addressee = #{record.addressee,jdbcType=VARCHAR},
+      </if>
+      <if test="record.isdefault != null">
+        isDefault = #{record.isdefault,jdbcType=VARCHAR},
       </if>
     </set>
     <if test="_parameter != null">
@@ -235,8 +235,8 @@
       district = #{record.district,jdbcType=SMALLINT},
       street = #{record.street,jdbcType=VARCHAR},
       tel = #{record.tel,jdbcType=VARCHAR},
-      isDedault = #{record.isdedault,jdbcType=VARCHAR},
-      addressee = #{record.addressee,jdbcType=VARCHAR}
+      addressee = #{record.addressee,jdbcType=VARCHAR},
+      isDefault = #{record.isdefault,jdbcType=VARCHAR}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -265,11 +265,11 @@
       <if test="tel != null">
         tel = #{tel,jdbcType=VARCHAR},
       </if>
-      <if test="isdedault != null">
-        isDedault = #{isdedault,jdbcType=VARCHAR},
-      </if>
       <if test="addressee != null">
         addressee = #{addressee,jdbcType=VARCHAR},
+      </if>
+      <if test="isdefault != null">
+        isDefault = #{isdefault,jdbcType=VARCHAR},
       </if>
     </set>
     where addressId = #{addressid,jdbcType=INTEGER}
@@ -283,8 +283,8 @@
       district = #{district,jdbcType=SMALLINT},
       street = #{street,jdbcType=VARCHAR},
       tel = #{tel,jdbcType=VARCHAR},
-      isDedault = #{isdedault,jdbcType=VARCHAR},
-      addressee = #{addressee,jdbcType=VARCHAR}
+      addressee = #{addressee,jdbcType=VARCHAR},
+      isDefault = #{isdefault,jdbcType=VARCHAR}
     where addressId = #{addressid,jdbcType=INTEGER}
   </update>
 </mapper>

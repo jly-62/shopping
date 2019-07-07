@@ -614,76 +614,6 @@ public class AddressExample {
             return (Criteria) this;
         }
 
-        public Criteria andIsdedaultIsNull() {
-            addCriterion("isDedault is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andIsdedaultIsNotNull() {
-            addCriterion("isDedault is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andIsdedaultEqualTo(String value) {
-            addCriterion("isDedault =", value, "isdedault");
-            return (Criteria) this;
-        }
-
-        public Criteria andIsdedaultNotEqualTo(String value) {
-            addCriterion("isDedault <>", value, "isdedault");
-            return (Criteria) this;
-        }
-
-        public Criteria andIsdedaultGreaterThan(String value) {
-            addCriterion("isDedault >", value, "isdedault");
-            return (Criteria) this;
-        }
-
-        public Criteria andIsdedaultGreaterThanOrEqualTo(String value) {
-            addCriterion("isDedault >=", value, "isdedault");
-            return (Criteria) this;
-        }
-
-        public Criteria andIsdedaultLessThan(String value) {
-            addCriterion("isDedault <", value, "isdedault");
-            return (Criteria) this;
-        }
-
-        public Criteria andIsdedaultLessThanOrEqualTo(String value) {
-            addCriterion("isDedault <=", value, "isdedault");
-            return (Criteria) this;
-        }
-
-        public Criteria andIsdedaultLike(String value) {
-            addCriterion("isDedault like", value, "isdedault");
-            return (Criteria) this;
-        }
-
-        public Criteria andIsdedaultNotLike(String value) {
-            addCriterion("isDedault not like", value, "isdedault");
-            return (Criteria) this;
-        }
-
-        public Criteria andIsdedaultIn(List<String> values) {
-            addCriterion("isDedault in", values, "isdedault");
-            return (Criteria) this;
-        }
-
-        public Criteria andIsdedaultNotIn(List<String> values) {
-            addCriterion("isDedault not in", values, "isdedault");
-            return (Criteria) this;
-        }
-
-        public Criteria andIsdedaultBetween(String value1, String value2) {
-            addCriterion("isDedault between", value1, value2, "isdedault");
-            return (Criteria) this;
-        }
-
-        public Criteria andIsdedaultNotBetween(String value1, String value2) {
-            addCriterion("isDedault not between", value1, value2, "isdedault");
-            return (Criteria) this;
-        }
-
         public Criteria andAddresseeIsNull() {
             addCriterion("addressee is null");
             return (Criteria) this;
@@ -751,6 +681,76 @@ public class AddressExample {
 
         public Criteria andAddresseeNotBetween(String value1, String value2) {
             addCriterion("addressee not between", value1, value2, "addressee");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsdefaultIsNull() {
+            addCriterion("isDefault is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsdefaultIsNotNull() {
+            addCriterion("isDefault is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsdefaultEqualTo(String value) {
+            addCriterion("isDefault =", value, "isdefault");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsdefaultNotEqualTo(String value) {
+            addCriterion("isDefault <>", value, "isdefault");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsdefaultGreaterThan(String value) {
+            addCriterion("isDefault >", value, "isdefault");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsdefaultGreaterThanOrEqualTo(String value) {
+            addCriterion("isDefault >=", value, "isdefault");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsdefaultLessThan(String value) {
+            addCriterion("isDefault <", value, "isdefault");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsdefaultLessThanOrEqualTo(String value) {
+            addCriterion("isDefault <=", value, "isdefault");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsdefaultLike(String value) {
+            addCriterion("isDefault like", value, "isdefault");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsdefaultNotLike(String value) {
+            addCriterion("isDefault not like", value, "isdefault");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsdefaultIn(List<String> values) {
+            addCriterion("isDefault in", values, "isdefault");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsdefaultNotIn(List<String> values) {
+            addCriterion("isDefault not in", values, "isdefault");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsdefaultBetween(String value1, String value2) {
+            addCriterion("isDefault between", value1, value2, "isdefault");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsdefaultNotBetween(String value1, String value2) {
+            addCriterion("isDefault not between", value1, value2, "isdefault");
             return (Criteria) this;
         }
     }

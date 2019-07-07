@@ -19,6 +19,10 @@ public class Product {
 
     private Date sale;
 
+    private String productid;
+
+    private String colorimage;
+
     public Integer getPid() {
         return pid;
     }
@@ -81,5 +85,21 @@ public class Product {
 
     public void setSale(Date sale) {
         this.sale = sale;
+    }
+
+    public String getProductid() {
+        return productid;
+    }
+
+    public void setProductid(String productid) {
+        this.productid = productid == null ? null : productid.trim();
+    }
+
+    public String getColorimage() {
+        return colorimage;
+    }
+
+    public void setColorimage(String colorimage) {
+        this.colorimage = colorimage == null ? null : colorimage.trim();
     }
 }

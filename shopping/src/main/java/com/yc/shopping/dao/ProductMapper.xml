@@ -10,6 +10,8 @@
     <result column="price" jdbcType="DOUBLE" property="price" />
     <result column="color" jdbcType="VARCHAR" property="color" />
     <result column="sale" jdbcType="TIMESTAMP" property="sale" />
+    <result column="productId" jdbcType="VARCHAR" property="productid" />
+    <result column="colorImage" jdbcType="VARCHAR" property="colorimage" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -70,7 +72,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    pid, pname, pdesc, stock, categoryId, price, color, sale
+    pid, pname, pdesc, stock, categoryId, price, color, sale, productId, colorImage
   </sql>
   <select id="selectByExample" parameterType="com.yc.shopping.bean.ProductExample" resultMap="BaseResultMap">
     select
@@ -105,10 +107,12 @@
   <insert id="insert" parameterType="com.yc.shopping.bean.Product">
     insert into product (pid, pname, pdesc, 
       stock, categoryId, price, 
-      color, sale)
+      color, sale, productId, 
+      colorImage)
     values (#{pid,jdbcType=INTEGER}, #{pname,jdbcType=VARCHAR}, #{pdesc,jdbcType=VARCHAR}, 
       #{stock,jdbcType=INTEGER}, #{categoryid,jdbcType=INTEGER}, #{price,jdbcType=DOUBLE}, 
-      #{color,jdbcType=VARCHAR}, #{sale,jdbcType=TIMESTAMP})
+      #{color,jdbcType=VARCHAR}, #{sale,jdbcType=TIMESTAMP}, #{productid,jdbcType=VARCHAR}, 
+      #{colorimage,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.yc.shopping.bean.Product">
     insert into product
@@ -137,6 +141,12 @@
       <if test="sale != null">
         sale,
       </if>
+      <if test="productid != null">
+        productId,
+      </if>
+      <if test="colorimage != null">
+        colorImage,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="pid != null">
@@ -162,6 +172,12 @@
       </if>
       <if test="sale != null">
         #{sale,jdbcType=TIMESTAMP},
+      </if>
+      <if test="productid != null">
+        #{productid,jdbcType=VARCHAR},
+      </if>
+      <if test="colorimage != null">
+        #{colorimage,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -198,6 +214,12 @@
       <if test="record.sale != null">
         sale = #{record.sale,jdbcType=TIMESTAMP},
       </if>
+      <if test="record.productid != null">
+        productId = #{record.productid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.colorimage != null">
+        colorImage = #{record.colorimage,jdbcType=VARCHAR},
+      </if>
     </set>
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
@@ -212,7 +234,9 @@
       categoryId = #{record.categoryid,jdbcType=INTEGER},
       price = #{record.price,jdbcType=DOUBLE},
       color = #{record.color,jdbcType=VARCHAR},
-      sale = #{record.sale,jdbcType=TIMESTAMP}
+      sale = #{record.sale,jdbcType=TIMESTAMP},
+      productId = #{record.productid,jdbcType=VARCHAR},
+      colorImage = #{record.colorimage,jdbcType=VARCHAR}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -241,6 +265,12 @@
       <if test="sale != null">
         sale = #{sale,jdbcType=TIMESTAMP},
       </if>
+      <if test="productid != null">
+        productId = #{productid,jdbcType=VARCHAR},
+      </if>
+      <if test="colorimage != null">
+        colorImage = #{colorimage,jdbcType=VARCHAR},
+      </if>
     </set>
     where pid = #{pid,jdbcType=INTEGER}
   </update>
@@ -252,7 +282,9 @@
       categoryId = #{categoryid,jdbcType=INTEGER},
       price = #{price,jdbcType=DOUBLE},
       color = #{color,jdbcType=VARCHAR},
-      sale = #{sale,jdbcType=TIMESTAMP}
+      sale = #{sale,jdbcType=TIMESTAMP},
+      productId = #{productid,jdbcType=VARCHAR},
+      colorImage = #{colorimage,jdbcType=VARCHAR}
     where pid = #{pid,jdbcType=INTEGER}
   </update>
 </mapper>

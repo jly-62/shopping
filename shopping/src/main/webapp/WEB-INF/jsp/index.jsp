@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 	<head lang="en">
@@ -9,17 +8,11 @@
 		<link rel="stylesheet" type="text/css" href="css/public.css"/>
 		<link rel="stylesheet" type="text/css" href="css/index.css" />
 	</head>
-	<body>
+	<body >
 		<!------------------------------head------------------------------>
-		
+	
 		<div class="head">
 			<%@ include file="common/header.jsp" %>
-			
-			<%-- <%if(session.getAttribute("user")==null){%>
-	<jsp:include page="common/notheader.jsp"></jsp:include>
-	<% } else{%>
-	<jsp:include page="common/header.jsp"></jsp:include>
-	<%} %> --%>
 		</div>
 		
 		<!-------------------------banner--------------------------->
@@ -43,9 +36,9 @@
 		<!------------------------------thImg------------------------------>
 		<div class="thImg">
 			<div class="clearfix">
-				<a href="vase_proList.jsp"><img src="img/i1.jpg"/></a>
-				<a href="proList.jsp"><img src="img/i2.jpg"/></a>
-				<a href="#2"><img src="img/i3.jpg"/></a>
+				<a href="flowerDer?categoryId=3"><img src="http://img.alicdn.com/imgextra/i2/2069538386/TB17Pi7nTnI8KJjSszbXXb4KFXa_!!0-item_pic.jpg_430x430q90.jpg" style="width:260px;height:350px"/></a>
+				<a href="flowerDer?categoryId=4"><img src="img/i3.jpg"/></a>
+				<a href="flowerDer?categoryId=5"><img src="http://img.alicdn.com/imgextra/i2/2264215783/O1CN01rcHtDS1saeycuZzA9_!!2264215783.jpg_430x430q90.jpg" style="width:260px;height:350px"/></a>
 			</div>
 		</div>
 		
@@ -54,104 +47,64 @@
 			<div class="wrapper">
 				<h2><img src="img/ih1.jpg"/></h2>
 				<div class="top clearfix">
-					<a href="proDetail.jsp"><img src="img/n1.jpg"/><p></p></a>
-					<a href="proDetail.jsp"><img src="img/n2.jpg"/><p></p></a>
-					<a href="proDetail.jsp"><img src="img/n3.jpg"/><p></p></a>
+				<c:forEach items="${homePageList1 }" var="c" begin='0' end='2' step='1'  varStatus="status"> 
+					<c:choose>
+					   <c:when test="${status.count eq 1}"> 
+					   	<a href="proDetail?productId=${c.productid }"><img src="${c.colorimage }" style="width:545px;height:310px"/><p></p></a>  
+					  </c:when>   
+					   <c:otherwise>  
+					   	<a href="proDetail?productId=${c.productid }"><img src="${c.colorimage }" style="width:270px;height:310px"/><p></p></a>
+					  </c:otherwise>  
+					</c:choose>	 
+				</c:forEach>
+
 				</div>
-				<div class="bott clearfix">
-					<a href="proDetail.jsp"><img src="img/n4.jpg"/><p></p></a>
-					<a href="proDetail.jsp"><img src="img/n5.jpg"/><p></p></a>
-					<a href="proDetail.jsp"><img src="img/n6.jpg"/><p></p></a>
+				<div class="top clearfix">
+				<c:forEach items="${homePageList1 }" var="c" begin='3' end='5' step='1'  varStatus="status"> 
+					<c:choose>
+					   <c:when test="${status.count eq 3}"> 
+					   	<a href="proDetail?productId=${c.productid }"><img src="${c.colorimage }" style="width:545px;height:310px"/><p></p></a>  
+					  </c:when>   
+					   <c:otherwise>  
+					   	<a href="proDetail?productId=${c.productid }"><img src="${c.colorimage }" style="width:270px;height:310px"/><p></p></a>
+					  </c:otherwise>  
+					</c:choose>	 
+				</c:forEach>			
 				</div>
+			
 				<h2><img src="img/ih2.jpg"/></h2>
 				<div class="flower clearfix tran">
-				
-				 <c:forEach items="${plist }" var="c">
-					<a href="proDetail?id=${c.id }">
-						<dl>
-							<dt>
-								<span class="abl"></span>
-								<img src="img/flo1.jpg"/>
-								<span class="abr"></span>
-							</dt>
-							<dd>${c.name }</dd>
-							<dd><span>${c.price }</span></dd>
-						</dl>
-					</a>
-				</c:forEach> 	
-					
-					
-					 
-					<!--  <a href="proDetail.jsp">
-						<dl>
-							<dt>
-								<span class="abl"></span>
-								<img src="img/flo2.jpg"/>
-								<span class="abr"></span>
-							</dt>
-							<dd>【花艺】七头美丽玫瑰仿真花束</dd>
-							<dd><span>¥ 79.00</span></dd>
-						</dl>
-					</a>
-					<a href="proDetail.jsp">
-						<dl>
-							<dt>
-								<span class="abl"></span>
-								<img src="img/flo3.jpg"/>
-								<span class="abr"></span>
-							</dt>
-							<dd>【花艺】七头美丽玫瑰仿真花束</dd>
-							<dd><span>¥ 79.00</span></dd>
-						</dl>
-					</a>  -->
-					
-					
+					<c:forEach items="${homePageList2 }" var="c" begin='0' end='2' step='1'  varStatus="status"> 						
+						<a href="proDetail?productId=${c.productid }" class="clearfix">
+							<dl>
+								<dt>
+									<span class="abl"></span>
+									<img src="${c.colorimage }" style="width:356px;height:356px"/>
+									<span class="abr"></span>
+								</dt>
+								<dd>【花艺】${c.pname}</dd>
+								<dd><span>¥ ${c.price }</span></dd>
+							</dl>
+						</a>
+					</c:forEach>
 				</div>
-				
-				
-				
 				<div class="flower clearfix tran">
-					<a href="proDetail.jsp"> 
-						<dl>
-							<dt>
-								<span class="abl"></span>
-								<img src="img/flo4.jpg"/>
-								<span class="abr"></span>
-							</dt>
-							<dd>【花艺】七头美丽玫瑰仿真花束</dd>
-							<dd><span>¥ 79.00</span></dd>
-						</dl>
-					</a>
-					<a href="proDetail.jsp">
-						<dl>
-							<dt>
-								<span class="abl"></span>
-								<img src="img/flo5.jpg"/>
-								<span class="abr"></span>
-							</dt>
-							<dd>【花艺】七头美丽玫瑰仿真花束</dd>
-							<dd><span>¥ 79.00</span></dd>
-						</dl>
-					</a>
-					<a href="proDetail.jsp">
-						<dl>
-							<dt>
-								<span class="abl"></span>
-								<img src="img/flo6.jpg"/>
-								<span class="abr"></span>
-							</dt>
-							<dd>【花艺】七头美丽玫瑰仿真花束</dd>
-							<dd><span>¥ 79.00</span></dd>
-						</dl>
-					</a>
+				<c:forEach items="${homePageList2 }" var="c" begin='3' end='5' step='1'  varStatus="status"> 
+					<a href="proDetail?productId=${c.productid }" class="clearfix">
+							<dl>
+								<dt>
+									<span class="abl"></span>
+									<img src="${c.colorimage }" style="width:356px;height:356px"/>
+									<span class="abr"></span>
+								</dt>
+								<dd>【花艺】${c.pname}</dd>
+								<dd><span>¥ ${c.price }</span></dd>
+							</dl>
+						</a>
+				</c:forEach>
 				</div>
-				
-				
-				
-				
-				
 			</div>
-		</div> 
+		</div>
 		
 		<!------------------------------ad------------------------------>
 		<a href="#" class="ad"><img src="img/ib1.jpg"/></a>
@@ -160,150 +113,42 @@
 		<div class="people">
 			<div class="wrapper">
 				<h2><img src="img/ih3.jpg"/></h2>
+				
 				<div class="pList clearfix tran">
-					<a href="proDetail.jsp">
-						<dl>
-							<dt>
-								<span class="abl"></span>
-								<img src="img/s7.jpg"/>
-								<span class="abr"></span>
-							</dt>
-							<dd>【最家】不锈钢壁饰墙饰软装</dd>
-							<dd><span>￥688.00</span></dd>
-						</dl>
-					</a>
-					<a href="proDetail.jsp">
-						<dl>
-							<dt>
-								<span class="abl"></span>
-								<img src="img/s10.jpg"/>
-								<span class="abr"></span>
-							</dt>
-							<dd>【最家】小城动物木板画壁挂北欧</dd>
-							<dd><span>￥188.00</span></dd>
-						</dl>
-					</a>
-					<a href="proDetail.jsp">
-						<dl>
-							<dt>
-								<span class="abl"></span>
-								<img src="img/s4.jpg"/>
-								<span class="abr"></span>
-							</dt>
-							<dd>【最家】玄关假山水壁饰背景墙饰挂件创意</dd>
-							<dd><span>￥599.00</span></dd>
-						</dl>
-					</a>
-					<a href="proDetail.jsp">
-						<dl>
-							<dt>
-								<span class="abl"></span>
-								<img src="img/s9.jpg"/>
-								<span class="abr"></span>
-							</dt>
-							<dd>【最家】金属树枝壁饰铜鸟装饰品</dd>
-							<dd><span>￥928.00</span></dd>
-						</dl>
-					</a>
+				<c:forEach items="${homePageList3 }" var="c" begin='0' end='3' step='1'  varStatus="status"> 						
+						<a href="proDetail?productId=${c.productid }" class="clearfix">
+							<dl>
+								<dt>
+									<span class="abl"></span>
+									<img src="${c.colorimage }" style="width:268px;height:268px"/>
+									<span class="abr"></span>
+								</dt>
+								<dd>${c.pname}</dd>
+								<dd><span>¥ ${c.price }</span></dd>
+							</dl>
+						</a>
+					</c:forEach>
 				</div>
 				<div class="pList clearfix tran">
-					<a href="proDetail.jsp">
-						<dl>
-							<dt>
-								<span class="abl"></span>
-								<img src="img/s6.jpg"/>
-								<span class="abr"></span>
-							</dt>
-							<dd>【最家】金属壁饰创意背景墙面挂件创意</dd>
-							<dd><span>￥228.00</span></dd>
-						</dl>
-					</a>
-					<a href="proDetail.jsp">
-						<dl>
-							<dt>
-								<span class="abl"></span>
-								<img src="img/s8.jpg"/>
-								<span class="abr"></span>
-							</dt>
-							<dd>【最家】小城动物木板画壁挂北欧</dd>
-							<dd><span>￥199.00</span></dd>
-						</dl>
-					</a>
-					<a href="proDetail.jsp">
-						<dl>
-							<dt>
-								<span class="abl"></span>
-								<img src="img/s12.jpg"/>
-								<span class="abr"></span>
-							</dt>
-							<dd>【最家】欧式复古挂钟创意餐厅钟表家居挂件</dd>
-							<dd><span>￥666.00</span></dd>
-						</dl>
-					</a>
-					<a href="proDetail.jsp">
-						<dl>
-							<dt>
-								<span class="abl"></span>
-								<img src="img/s1.jpg"/>
-								<span class="abr"></span>
-							</dt>
-							<dd>【最家】客厅地中海欧式现代相片墙创意</dd>
-							<dd><span>￥59.80</span></dd>
-						</dl>
-					</a>
-				</div>
-				<div class="pList clearfix tran">
-					<a href="proDetail.jsp">
-						<dl>
-							<dt>
-								<span class="abl"></span>
-								<img src="img/s5.jpg"/>
-								<span class="abr"></span>
-							</dt>
-							<dd>【最家】铁艺荷叶壁挂软装背景墙上装饰品</dd>
-							<dd><span>￥800.00</span></dd>
-						</dl>
-					</a>
-					<a href="proDetail.jsp">
-						<dl>
-							<dt>
-								<span class="abl"></span>
-								<img src="img/s3.jpg"/>
-								<span class="abr"></span>
-							</dt>
-							<dd>【最家】欧式照片墙 创意组合结婚礼物</dd>
-							<dd><span>￥189.00</span></dd>
-						</dl>
-					</a>
-					<a href="proDetail.jsp">
-						<dl>
-							<dt>
-								<span class="abl"></span>
-								<img src="img/s2.jpg"/>
-								<span class="abr"></span>
-							</dt>
-							<dd>【最家】欧式钟表相框墙挂墙创意组合</dd>
-							<dd><span>￥148.00</span></dd>
-						</dl>
-					</a>
-					<a href="proDetail.jsp">
-						<dl>
-							<dt>
-								<span class="abl"></span>
-								<img src="img/s11.jpg"/>
-								<span class="abr"></span>
-							</dt>
-							<dd>【最家】小城动物木板画壁挂北欧</dd>
-							<dd><span>￥188.00</span></dd>
-						</dl>
-					</a>
+					<c:forEach items="${homePageList3 }" var="c" begin='4' end='7' step='1'  varStatus="status"> 
+						<a href="proDetail?productId=${c.productid }" class="clearfix">
+								<dl>
+									<dt>
+										<span class="abl"></span>
+										<img src="${c.colorimage }" style="width:268px;height:268px"/>
+										<span class="abr"></span>
+									</dt>
+									<dd>${c.pname}</dd>
+									<dd><span>¥ ${c.price }</span></dd>
+								</dl>
+							</a>
+					</c:forEach>
 				</div>
 			</div>
 		</div>
 		<!------------------------------footer------------------------------>
 		<%@ include file="common/footer.jsp"%>
-		
-		
+				
 		<script src="js/jquery-1.12.4.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/public.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/nav.js" type="text/javascript" charset="utf-8"></script>
@@ -322,7 +167,6 @@
 
 			});
 		</script>
-		
 		
 	</body>
 </html>

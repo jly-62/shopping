@@ -351,7 +351,11 @@
     where oid = #{oid,jdbcType=INTEGER}
   </update>
   
-  <resultMap type="com.yc.shopping.bean.Orders2" id="orders2" autoMapping="true">
+  
+  
+  
+  <!-- 添加的代码 -->
+   <resultMap type="com.yc.shopping.bean.Orders2" id="orders2" autoMapping="true">
   	<id column="oid" property="oid"/>
   	<association property="address" javaType="com.yc.shopping.bean.Address" autoMapping="true">
 		<id column="addressid" property="addressid"/>

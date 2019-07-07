@@ -15,6 +15,34 @@
 a{text-decoration:none;}
 
 </style>
+<script type="text/javascript">
+	function select(){
+		
+		//定义数组
+		var ls=new Array();
+		$("input[name='check']:checked").each(function(){
+			var count = $(this).parent().parent().parent().find(".number p span").text();
+			var a=$(this).val();
+			var m = a.split(",");
+			ls.push({pid:m[0],count:count,cartid:m[1]});  //向数组中添加
+		}); 
+		if(ls.length==0){
+			alert("请选择要购买的商品");
+			return false;
+		}else{
+			$.ajax({
+				type:'post',
+				data:JSON.stringify(ls),
+				url:'toOrder',
+				contentType:"application/json",
+				dataType:'json',
+				async: false,
+				success:function(data){
+				}
+			}); 
+		}
+	}
+</script>
 	<body>
 		<!--------------------------------------cart--------------------->
 		<div class="head ding">
@@ -46,18 +74,18 @@ a{text-decoration:none;}
 					<div>小计</div>
 					<div>操作</div>
 				</div>
-				<c:forEach items="${cart }" var="c">
+				<c:forEach items="${cart }" var="c" varStatus="a">
 					<div class="th">
 						<div class="pro clearfix">
 							<label class="fl">
-								<input type="checkbox" value="${c.id }"/>
+								<input type="checkbox" name="check" value="${c.pid },${c.cartid}"/>
 	    						<span></span>
 							</label>
 							<a class="fl" href="#">
 								<dl class="clearfix">
 									<dt class="fl"><img src="img/temp/cart01.jpg"></dt>
 									<dd class="fl">
-										<p>${c.product.pname }</p>
+										<p>${c.product.pname.length()>10?c.product.pname.substring(0,10):c.product.pname }<c:if test="${c.product.pname.length()>10 }">...</c:if></p>
 										<p>颜色分类:</p>
 										<p>${c.product.color }</p>
 									</dd>
@@ -76,7 +104,7 @@ a{text-decoration:none;}
 						<div class="price"><a class="del" href="#2">删除</a></div>
 					</div>
 				</c:forEach>
-				
+			
 				<div class="goOn">空空如也~<a href="index.html">去逛逛</a></div>
 				<div class="tr clearfix">
 					<label class="fl">
@@ -90,7 +118,7 @@ a{text-decoration:none;}
 					<p class="fr">
 						<span>共<small id="sl">0</small>件商品</span>
 						<span>合计:&nbsp;<small id="all">￥0.00</small></span>
-						<a href="order" class="count">结算</a>
+						<a href="order" class="count" onclick="select()">结算</a>
 					</p>
 				</div>
 			</div>
@@ -145,6 +173,6 @@ a{text-decoration:none;}
 		<script src="js/jquery-1.12.4.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/public.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/pro.js" type="text/javascript" charset="utf-8"></script>
-		<script src="js/cart.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/js/cart.js" type="text/javascript" charset="utf-8"></script>
 	</body>
 </html>

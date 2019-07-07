@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>  
+<%@page import="com.yc.shopping.bean.Product"%>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -14,12 +14,6 @@
 	
 		<div class="head">
 			<%@ include file="common/header.jsp" %>
-			
-			<%-- <%if(session.getAttribute("user")==null){%>
-	<jsp:include page="common/notheader.jsp"></jsp:include>
-	<% } else{%>
-	<jsp:include page="common/header.jsp"></jsp:include>
-	<%} %> --%>
 		</div>
 		
 		<!-----------------address------------------------------->
@@ -37,33 +31,42 @@
 		<!-----------------------Detail------------------------------>
 		<div class="detCon">
 			<div class="proDet wrapper">
-			
-		
 				<div class="proCon clearfix">
 					<div class="proImg fl">
-						<img class="det" src="img/temp/proDet.jpg" />
+						<c:forEach items="${lPictures }" var="c" begin='0' end='0' varStatus="status">
+							<img class="det" src="${c.pictureurl }" />
+						</c:forEach>
+						
 						<div class="smallImg clearfix">
-							<img src="img/temp/proDet01.jpg" data-src="img/temp/proDet01_big.jpg">
-							<img src="img/temp/proDet02.jpg" data-src="img/temp/proDet02_big.jpg">
-							<img src="img/temp/proDet03.jpg" data-src="img/temp/proDet03_big.jpg">
-							<img src="img/temp/proDet04.jpg" data-src="img/temp/proDet04_big.jpg">
+						<c:forEach items="${lPictures }" var="c"  begin='0' end='4' step='1' varStatus="status">
+						<img src="${c.pictureurl }" data-src="${c.pictureurl }">
+						</c:forEach>
 						</div>
 					</div>
 					<div class="fr intro">
 						<div class="title">
-							<h4>【最家】非洲菊仿真花干花</h4>
-							<p>【破损补寄】【适合放室内、卧室、书房、餐桌、办公室、客厅、电视柜等地方】【无理由退换货】【包邮】【白色现代简约花瓶】</p>
-							<span>￥59.90</span>
+						<c:forEach items="${lProducts }" var="c" begin='0' end='0' varStatus="status">
+							<% Product c=(Product)pageContext.getAttribute("c");
+								if(c.getPname().length()>22){
+									String name=c.getPname();
+									c.setPname(name.substring(0,22));
+								}
+							%>
+							<h4><%=c.getPname()%> </h4>
+							<p>${c.pdesc }</p>
+							<span>￥ ${c.price}</span>
+						</c:forEach>
 						</div>
 						<div class="proIntro">
 							<p>颜色分类</p>
 							<div class="smallImg clearfix categ">
-								<p class="fl"><img src="img/temp/prosmall01.jpg" alt="白瓷花瓶+20支快乐花" data-src="img/temp/proBig01.jpg"></p>
-								<p class="fl"><img src="img/temp/prosmall02.jpg" alt="白瓷花瓶+20支兔尾巴草" data-src="img/temp/proBig02.jpg"></p>
-								<p class="fl"><img src="img/temp/prosmall03.jpg" alt="20支快乐花" data-src="img/temp/proBig03.jpg"></p>
-								<p class="fl"><img src="img/temp/prosmall04.jpg" alt="20支兔尾巴草" data-src="img/temp/proBig04.jpg"></p>
+							<c:forEach items="${lProducts }" var="c"  begin='0' end='4' step='1' varStatus="status">
+								<p class="fl"><img src="${c.colorimage }" alt="${c.color }" style="width:45px;height:45px" data-src="${c.colorimage }"></p>
+							</c:forEach>
 							</div>
-							<p>数量&nbsp;&nbsp;库存<span>2096</span>件</p>
+							<c:forEach items="${lProducts }" var="c" begin='0' end='0' varStatus="status">
+							<p>数量&nbsp;&nbsp;库存<span>${c.stock}</span>件</p>
+						</c:forEach>
 							<div class="num clearfix">
 								<img class="fl sub" src="img/temp/sub.jpg">
 								<span class="fl" contentEditable="true">1</span>
@@ -79,12 +82,6 @@
 				</div>
 			</div>
 		</div>
-		
-		
-		
-		
-		
-	<!-- 	
 		<div class="introMsg wrapper clearfix">
 			<div class="msgL fl">
 				<div class="msgTit clearfix">
@@ -93,13 +90,9 @@
 				</div>
 				<div class="msgAll">
 					<div class="msgImgs">
-						<img src="img/temp/det01.jpg">
-						<img src="img/temp/det02.jpg">
-						<img src="img/temp/det03.jpg">
-						<img src="img/temp/det04.jpg">
-						<img src="img/temp/det05.jpg">
-						<img src="img/temp/det06.jpg">
-						<img src="img/temp/det07.jpg">
+						<c:forEach items="${lPictures }" var="c"  step='1' varStatus="status" >
+							<img src="${c.pictureurl }" style="width:940px;height:696px">
+						</c:forEach>
 					</div>
 					<div class="eva">
 						<div class="per clearfix">
@@ -219,7 +212,7 @@
 						</div>
 					</div>
 				</div>
-			</div> -->
+			</div>
 			<div class="msgR fr">
 				<h4>为你推荐</h4>
 				<div class="seeList">

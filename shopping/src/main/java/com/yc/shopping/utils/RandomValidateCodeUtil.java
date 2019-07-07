@@ -1,4 +1,4 @@
-package com.yc.shopping.util;
+package com.yc.shopping.utils;
 
 import java.awt.Color;
 import java.awt.Font;

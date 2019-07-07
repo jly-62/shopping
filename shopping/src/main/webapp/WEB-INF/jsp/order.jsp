@@ -30,56 +30,34 @@
 					<h3>收件信息<a href="#" class="fr">新增地址</a></h3>
 					<!--------addres---------------->
 					<div class="addres clearfix">
+					<c:forEach items="${address }" var="a">
+					<c:if test="${a.isdefault==0 }">
 						<div class="addre fl on">
-							<div class="tit clearfix">
-								<p class="fl">张三1
-									<span class="default">[默认地址]</span>
-								</p>
-								<p class="fr">
-									<a href="#">删除</a>
-									<span>|</span>
-									<a href="#" class="edit">编辑</a>
-								</p>
-							</div>
-							<div class="addCon">
-								<p>河北省&nbsp;唐山市&nbsp;路北区&nbsp;大学生公寓村</p>
-								<p>15732570937</p>
-							</div>
-						</div>
+					</c:if>
+					<c:if test="${a.isdefault==1 }">
 						<div class="addre fl">
+					</c:if>
 							<div class="tit clearfix">
-								<p class="fl">张三2
+								<p class="fl">${a.addressee }
+									<c:if test="${a.isdefault==0 }">
+										<span class="default">[默认地址]</span>
+									</c:if>
 								</p>
 								<p class="fr">
-									<a href="#" class="setDefault">设为默认</a>
-									<span>|</span>
+									<c:if test="${a.isdefault==1 }">
+										<a href="#" class="setDefault">设为默认</a>
+									</c:if>
 									<a href="#">删除</a>
 									<span>|</span>
 									<a href="#" class="edit">编辑</a>
 								</p>
 							</div>
 							<div class="addCon">
-								<p>河北省&nbsp;唐山市&nbsp;路北区&nbsp;大学生公寓村</p>
-								<p>15732570937</p>
+								<p>${a.address }</p>
+								<p>${a.tel }</p>
 							</div>
 						</div>
-						<div class="addre fl">
-							<div class="tit clearfix">
-								<p class="fl">张三3
-								</p>
-								<p class="fr">
-									<a href="#" class="setDefault">设为默认</a>
-									<span>|</span>
-									<a href="#">删除</a>
-									<span>|</span>
-									<a href="#" class="edit">编辑</a>
-								</p>
-							</div>
-							<div class="addCon">
-								<p>河北省&nbsp;唐山市&nbsp;路北区&nbsp;大学生公寓村</p>
-								<p>15732570937</p>
-							</div>
-						</div>
+					</c:forEach>
 					</div>
 					<h3>支付方式</h3>
 					<!--------way---------------->
@@ -98,42 +76,34 @@
 						<span>中通快递</span>
 					</div>
 				</div>
+				
 				<div class="orderR fr">
 					<div class="msg">
-						<h3>订单内容<a href="cart.html" class="fr">返回购物车</a></h3>
+						<h3>订单内容<a href="cart" class="fr">返回购物车</a></h3>
 						<!--------ul---------------->
-						<ul class="clearfix">
-							<li class="fl">
-								<img src="img/temp/order01.jpg">
-							</li>
-							<li class="fl">
-								<p>创意现代简约干花花瓶摆件</p>
-								<p>颜色分类：烟灰色玻璃瓶</p>
-								<p>数量：1</p>
-							</li>
-							<li class="fr">￥69.90</li>
-						</ul>
-						<ul class="clearfix">
-							<li class="fl">
-								<img src="img/temp/order02.jpg">
-							</li>
-							<li class="fl">
-								<p>创意现代简约干花花瓶摆件</p>
-								<p>颜色分类：烟灰色玻璃瓶</p>
-								<p>数量：1</p>
-							</li>
-							<li class="fr">￥69.90</li>
-						</ul>
+						<c:forEach items="${orders }" var="o">
+							<ul class="clearfix">
+								<li class="fl">
+									<img src="img/temp/order01.jpg">
+								</li>
+								<li class="fl">
+									<p>${o.product.pname.length()>10?o.product.pname.substring(0,10):o.product.pname }<c:if test="${o.product.pname.length()>10 }">...</c:if></p>
+									<p>颜色分类：${o.product.color }</p>
+									<p>数量：${o.count }</p>
+								</li>
+								<li class="fr">￥${o.product.price }</li>
+							</ul>
+						</c:forEach>
 					</div>
 					<!--------tips---------------->
 					<div class="tips">
-						<p><span class="fl">商品金额：</span><span class="fr">￥139.80</span></p>
+						<p><span class="fl">商品金额：</span><span class="fr">￥${total }</span></p>
 						<p><span class="fl">优惠金额：</span><span class="fr">￥0.00</span></p>
 						<p><span class="fl">运费：</span><span class="fr">免运费</span></p>
 					</div>
 					<!--------tips count---------------->
 					<div class="count tips">
-						<p><span class="fl">合计：</span><span class="fr">￥139.80</span></p>
+						<p><span class="fl">合计：</span><span class="fr">￥${total }</span></p>
 					</div>
 					<!--<input type="button" name="" value="去支付"> -->
 					<a href="ok.html" class="pay">去支付</a>
