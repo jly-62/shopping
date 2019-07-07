@@ -1,5 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <script>
+    function deleteSession() {
+    	location.href="logout";
+	}
+    </script>
 <!------------------------------Bott------------------------------>
 
 		<div class="Bott">
@@ -7,7 +12,7 @@
 				<div class="zuo fl">
 					<h3>
 						<a href="#"><img src="img/tx.png"/></a>
-						<p class="clearfix"><span class="fl"><a href="mygxin">${user }</a></span><span class="fr"><a href="login">[退出登录]</a></span></p>
+						<p class="clearfix"><span class="fl"><a href="mygxin">${loginedUser.username }</a></span><span class="fr"><a id="logout" style="cursor:pointer;" onclick="deleteSession()">[退出登录]</a></span></p>
 					</h3>
 					<div>
 						<h4>我的交易</h4>

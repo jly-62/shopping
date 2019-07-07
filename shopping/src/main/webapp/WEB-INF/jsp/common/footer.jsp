@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <!--返回顶部-->
 		<div class="gotop">
-			<a href="cart.html">
+			<a href="cart.jsp">
 			<dl>
 				<dt><img src="img/gt1.png"/></dt>
 				<dd>去购<br />物车</dd>
@@ -14,7 +14,7 @@
 				<dd>联系<br />客服</dd>
 			</dl>
 			</a>
-			<a href="mygxin.html">
+			<a href="mygxin.jsp">
 			<dl>
 				<dt><img src="img/gt3.png"/></dt>
 				<dd>个人<br />中心</dd>

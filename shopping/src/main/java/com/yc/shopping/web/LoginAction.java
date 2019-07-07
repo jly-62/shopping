@@ -4,32 +4,35 @@ import javax.annotation.Resource;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.yc.shopping.bean.User;
 import com.yc.shopping.biz.BizException;
 import com.yc.shopping.biz.UserBiz;
 import com.yc.shopping.dao.UserMapper;
-import com.yc.shopping.util.RandomValidateCodeUtil;
+import com.yc.shopping.util.EmailCode;
+
 
 @Controller
 @SessionAttributes("loginedUser")
 public class LoginAction {
-	
-/*private final static Logger logger = LoggerFactory.getLogger(LoginAction.class);*/
 	
 	@Resource
 	private UserMapper um;
@@ -42,83 +45,36 @@ public class LoginAction {
 	public String login(@ModelAttribute("User") User u) {
 		return "login";
 	}
-	
-	
-	
-	/*//生成验证码
-	 @RequestMapping(value = "/getVerify")
-	    public void getVerify(HttpServletRequest request, HttpServletResponse response) {
-	        try {
-	            response.setContentType("image/jpeg");//设置相应类型,告诉浏览器输出的内容为图片
-	            response.setHeader("Pragma", "No-cache");//设置响应头信息，告诉浏览器不要缓存此内容
-	            response.setHeader("Cache-Control", "no-cache");
-	            response.setDateHeader("Expire", 0);
-	            RandomValidateCodeUtil randomValidateCode = new RandomValidateCodeUtil();
-	            randomValidateCode.getRandcode(request, response);//输出验证码图片方法
-	        } catch (Exception e) {
-	            logger.error("获取验证码失败>>>>   ", e);
-	        }
-	    }*/
-	 
-	/* 
-	 *
-	 //获取验证码
-	 @RequestMapping(value = "/checkVerify", method = RequestMethod.POST,headers = "Accept=application/json")
-	    public boolean checkVerify(@RequestParam String verifyInput, HttpSession session) {
-	        try{
-	            //从session中获取随机数
-	            String inputStr = verifyInput;
-	            String random = (String) session.getAttribute("RANDOMVALIDATECODEKEY");
-	            if (random == null) {
-	                return false;
-	            }
-	            if (random.equals(inputStr)) {
-	                return true;
-	            } else {
-	                return false;
-	            }
-	        }catch (Exception e){
-	            logger.error("验证码校验失败", e);
-	            return false;
-	        }
-	    }*/
-	
 
 	@PostMapping("index")
-	/*@RequestMapping(value = "/checkVerify", method = RequestMethod.POST,headers = "Accept=application/json")*/
-	public String tologin(@ModelAttribute("User") @Valid User u,Errors errors,Model model,HttpServletRequest request/*,@RequestParam String verifyInput, HttpSession session*/) {
+	public String tologin(@ModelAttribute("User") @Valid User u,Errors errors,
+			Model model,HttpServletRequest request, HttpSession session) {
 		
-		
-		System.out.println(errors);
 		if(errors.hasFieldErrors("username") || errors.hasFieldErrors("upwd")) {
 			return "login";
 		}try {
 			
-			User dbu = ubiz.login(u);
+		    User dbu = ubiz.login(u);
 			model.addAttribute("loginedUser",dbu);
      		System.out.println("密码正确");
-			return "index";
-			/*try{
-				String inputStr = verifyInput;
-		        String random = (String) session.getAttribute("RANDOMVALIDATECODEKEY");
-				
-			if (random == null) {
-                return "login";
-                
-            }
-            if (random.equals(inputStr)) {
-            	return "index";
-            } 
-			else {
-                return "login";
-            }
-        }catch (Exception e){
-            logger.error("验证码校验失败", e);
-            return "login";
-        }*/
-			
-
-			
+     		
+     		
+     		
+			/*//没有获取到前台传过来的验证码
+     		 String inputStr = verifyInput;
+     		 System.out.println(inputStr+"：这是测试");*/
+     		 
+     		 
+		     /* String random = (String) session.getAttribute("RANDOMVALIDATECODEKEY");
+		      System.out.println(random+"是的");
+		      
+			      if (random.equals(inputStr)) {*/
+			        return "index";
+			      /*} else {
+			    	System.out.println("警告");
+			        return "login";
+			      }*/
+			/*return "index";*/
 			
 		} catch (BizException e) {
 			e.printStackTrace();
@@ -142,6 +98,35 @@ public class LoginAction {
 		ubiz.reg(u);
 		model.addAttribute("msg","注册成功");
 		return "login";
+	}
+	
+	
+	
+	//邮箱验证码
+	@Autowired
+	private JavaMailSender mailSender;
+	
+	@Value("${mail.fromMail.addr}")
+	private String from;
+	
+	public void sendSimpleMail(String to,String subject,String content) {
+		SimpleMailMessage message=new SimpleMailMessage();
+		message.setFrom(from);
+		message.setTo(to);
+		message.setSubject(subject);
+		message.setText(content);
+		mailSender.send(message);
+		}
+	
+
+	@RequestMapping("email")
+	@ResponseBody
+	public String send(String to/*,String content*/) {
+		
+		String code =EmailCode.getNumber();
+		
+		sendSimpleMail(to,"系统邮件",code);
+		return "发送成功";
 	}
 	
 	

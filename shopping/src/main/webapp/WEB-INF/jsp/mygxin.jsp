@@ -63,7 +63,7 @@
 				
 				<div class="you fl">
 				
-				<c:if test="${!empty loginedUser }"><div class="tx clearfix">
+				<div class="tx clearfix">
 						<div class="fl clearfix">
 							<a href="#" class="fl"><img src="img/tx.png"/></a>
 							<p class="fl"><span>${loginedUser.username }</span><a href="mygrxx">修改个人信息></a></p>
@@ -71,7 +71,7 @@
 						
 						<div class="fr">绑定邮箱：${loginedUser.email }</div>
 					</div>
-					</c:if>
+					
 				
 					
 				
